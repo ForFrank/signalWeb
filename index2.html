@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reasyui.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="index-body">
+<div  id="main_content" class="none" style="display: block">
+    <header class="masthead hidden-xs">
+        <!--<h2>test</h2>-->
+        <div class="container">
+
+            <div class="navbar-login row">
+                <a href="#">
+                    <img src="img/logo-inverse.png" alt="腾达LOGO">
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="row main-container">
+            <div class="navbar navbar-default col-sm-3 col-lg-2" id="nav">
+                <div class="navbar-header" style="background: #ed7020">
+                    <img src="img/logo-inverse.png" alt="腾达LOGO" class="visible-xs-inline">
+                    <button type="button" id="navbar-button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <nav class="navbar-collapse" id="nav-menu">
+                    <ul class="nav nav-content" id="sub-menu">
+                        <li>
+                            <a id="status" href="javascript:void(0)" class>
+                                <span class="menu icon-router">&nbsp;</span>
+                                运行状态
+                            </a>
+                        </li>
+                        <li>
+                            <a id="network" href="javascript:void(0)" class>
+                                <span class="menu icon-internet">&nbsp;</span>
+                                相位配置
+                            </a>
+                        </li>
+                        <li>
+                            <a id="wireless" href="javascript:void(0)" class>
+                                <span class="menu icon-wireless">&nbsp;</span>
+                                跟随相位
+                            </a>
+                        </li>
+                        <li>
+                            <a id="netCtrNavWrap" href="javascript:void(0)" class>
+                                <span class="menu icon-netSpeed">&nbsp;</span>
+                                通道配置
+                            </a>
+                        </li>
+                        <li>
+                            <a id="wireless-repeaters" href="javascript:void(0)" class>
+                                <span class="menu icon-repeater">&nbsp;</span>
+                                绿冲突表
+                            </a>
+                        </li>
+                        <li>
+                            <a id="advanced" href="javascript:void(0)" class>
+                                <span class="menu icon-advanced">&nbsp;</span>
+                                检测器表
+                            </a>
+                        </li>
+                        <li>
+                            <a id="system" href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                年计划表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                日计划表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                配时方案
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                绿信比表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                运行日志
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                中心IP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class>
+                                <span class="menu icon-system">&nbsp;</span>
+                                参数保存
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+            <article class="col-sm-10 col-lg-10 main-content" id="main-content">
+                <div id="iframe">
+                    <section class="container-fluid">
+                        <h2 class="legend">&nbsp;</h2>
+                        <form id="wireless" class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                <label class="col-xs-5 col-sm-4 col-md-3 control-label" for="wifiEn">无线开关</label>
+                                    <div class="col-xs-9 col-sm-8 col-md-9">
+                                        <span id="wifiEn" class="switch icon-toggle-on"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div id="wifiWrap" class="none" style="display: block;">
+                                <h2 class="legend">无线名称和密码</h2>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 col-md-3 control-label" for="wifiSSID">无线名称</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="wifiSSID" id="wifiSSID" class="form-control
+                                                   validatebox" maxlength="32" required="required"
+                                                   data-options="{&quot;type&quot;:&quot;ssid&quot;}"
+                                                   placeholder="无线名称">
+                                        </div><div class="col-sm-4 col-md-5 help-inline">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="wifiHideSSID" id="wifiHideSSID"
+                                                   value="true">隐藏无线名称</label>
+                                        <label class="radio-inline" style="padding-right:0">(<span id="helpTips"
+                                                    class="icon-help-circled"></span>)</label>
+                                        <div style="position:relative">
+                                            <div id="hideSSIDTips" class="wifi-tips none">
+                                                <span>隐藏无线名称，手机、平板电脑将无法扫描到路由器的无线信号</span>
+                                            </div></div></div></div><div class="form-group">
+                                    <label class="col-sm-4 col-md-3 control-label">加密方式</label>
+                                    <div class="col-sm-4">
+                                        <select id="wifiSecurityMode" class="form-control">
+                                            <option value="none">不加密</option>
+                                            <option value="wpa-psk">WPA-PSK</option>
+                                            <option value="wpa2-psk">WPA2-PSK</option>
+                                            <option value="wpa&amp;wpa2">WPA/WPA2-PSK 混合（推荐）</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 col-md-3 control-label" for="wifiPwd">无线密码</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="wifiPwd" id="wifiPwd" class="form-control
+                                             validatebox" required="" maxlength="63" placeholder="无线密码"
+                                                   data-options="{&quot;type&quot;:&quot;ssidPasword&quot;,&quot;
+                                                   args&quot;:[8, 63]}"></div></div></fieldset>
+                                <!--End Wi-Fi Name and Password-->
+                                <div id="wifiSignal" style="display: none;">
+                                    <h2 class="legend">无线信号强度</h2>
+                                    <fieldset><div class="form-group">
+                                        <label class="col-sm-4 col-md-3 control-label" for="wifiPowerLower">信号强度
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <label class="radio-inline" for="wifiPowerLower">
+                                                <input type="radio" id="wifiPowerLower" name="wifiPower" value="low">低</label>
+                                            <label id="wifiPowerNormalWrap" class="radio-inline" for="wifiPowerNormal">
+                                                <input type="radio" id="wifiPowerNormal" name="wifiPower" value="normal">中</label>
+                                            <label class="radio-inline" for="wifiPowerHigh">
+                                                <input type="radio" id="wifiPowerHigh" name="wifiPower" value="high">高</label>
+                                        </div>
+                                    </div>
+                                    </fieldset>
+                                </div>
+                                <!--End Wi-Fi Signal Strength-->
+                                <div id="optionWrap" class="none" style="display: block;">
+                                    <h2 class="legend">无线定时开关</h2>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 col-md-3 control-label" for="wifiTimeEnable">无线定时开关</label>
+                                            <div class="col-sm-8">
+                                                <label class="radio-inline" for="wifiTimeEnable">
+                                                    <input type="radio" id="wifiTimeEnable" name="wifiTimeEn" value="true">启用</label>
+                                                <label class="radio-inline" for="wifiTimeDisable">
+                                                    <input type="radio" id="wifiTimeDisable" name="wifiTimeEn" value="false">禁用
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--Show when Wi-Fi Schedule is Enabled-->
+                                        <div id="wifiScheduleWrap" class="none" style="display: none;">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 col-md-3 control-label">无线关闭时间段</label>
+                                                <div class="col-sm-8 col-md-9">
+                                                    <select id="startHour" class="form-control input-mini">
+                                                        <option value="00">00</option>
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                    </select>
+                                                    <span>:</span>
+                                                    <select id="startMin" class="form-control input-mini">
+                                                        <option value="00">00</option>
+                                                        <option value="05">05</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="20">20</option>
+                                                        <option value="25">25</option>
+                                                        <option value="30">30</option>
+                                                        <option value="35">35</option>
+                                                        <option value="40">40</option>
+                                                        <option value="45">45</option>
+                                                        <option value="50">50</option>
+                                                        <option value="55">55</option>
+                                                    </select>
+                                                    <span>~</span>
+                                                    <select id="endHour" class="form-control input-mini">
+                                                        <option value="00">00</option>
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                    </select>
+                                                    <span>:</span>
+                                                    <select id="endMin" class="form-control input-mini">
+                                                        <option value="00">00</option>
+                                                        <option value="05">05</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="20">20</option>
+                                                        <option value="25">25</option>
+                                                        <option value="30">30</option>
+                                                        <option value="35">35</option>
+                                                        <option value="40">40</option>
+                                                        <option value="45">45</option>
+                                                        <option value="50">50</option>
+                                                        <option value="55">55</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 col-md-3 control-label">重复</label>
+                                                <div class="col-sm-8">
+                                                    <label class="checkbox-inline" for="day0">
+                                                        <input type="checkbox" id="day0" value="ALL">每天</label>
+                                                    <label class="checkbox-inline" for="day1">
+                                                        <input type="checkbox" id="day1" value="Mon">星期一</label>
+                                                    <label class="checkbox-inline" for="day2">
+                                                        <input type="checkbox" id="day2" value="Tue">星期二</label>
+                                                    <label class="checkbox-inline" for="day3">
+                                                        <input type="checkbox" id="day3" value="Wed">星期三</label>
+                                                    <br class="visible-xs">
+                                                    <label class="checkbox-inline" for="day4">
+                                                        <input type="checkbox" id="day4" value="Thu">星期四</label>
+                                                    <label class="checkbox-inline" for="day5">
+                                                        <input type="checkbox" id="day5" value="Fri">星期五</label>
+                                                    <label class="checkbox-inline" for="day6">
+                                                        <input type="checkbox" id="day6" value="Sat">星期六</label>
+                                                    <label class="checkbox-inline" for="day7">
+                                                        <input type="checkbox" id="day7" value="Sun">星期日</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                            </div>
+                                <div id="wifiParamWrap" class="">
+                                    <div id="wifiParam">
+                                        <h2 class="legend">无线参数</h2>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 col-md-3 control-label" for="wifiMode">网络模式</label>
+                                                <div class="col-sm-4">
+                                                    <select id="wifiMode" name="wifiMode" class="form-control">
+                                                        <option value="bgn">11b/g/n</option>
+                                                        <option value="bg">11b/g</option>
+                                                        <option value="g">11g</option>
+                                                        <option value="b">11b</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 col-md-3 control-label" for="wifiChannel">无线信道</label>
+                                                <div class="col-sm-4">
+                                                    <!--此部分JS应控制最大长度-->
+                                                    <select id="wifiChannel" name="wifiChannel" class="form-control">
+                                                        <option value="Auto">自动</option>
+                                                        <option value="1">信道 1 (2412MHz)</option>
+                                                        <option value="2">信道 2 (2417MHz)</option>
+                                                        <option value="3">信道 3 (2422MHz)</option>
+                                                        <option value="4">信道 4 (2427MHz)</option>
+                                                        <option value="5">信道 5 (2432MHz)</option>
+                                                        <option value="6">信道 6 (2437MHz)</option>
+                                                        <option value="7">信道 7 (2442MHz)</option>
+                                                        <option value="8">信道 8 (2447MHz)</option>
+                                                        <option value="9">信道 9 (2452MHz)</option>
+                                                        <option value="10">信道 10 (2457MHz)</option>
+                                                        <option value="11">信道 11 (2462MHz)</option>
+                                                        <option value="12">信道 12 (2467MHz)</option>
+                                                        <option value="13">信道 13 (2472MHz)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-4 col-md-5 help-block cur-channel">
+                                                    当前信道：
+                                                    <span id="wifiChannelCurrent">3</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 col-md-3 control-label" for="wifiBandwidth">频宽</label>
+                                                <div class="col-sm-4">
+                                                    <select id="wifiBandwidth" name="wifiBandwidth" class="form-control">
+                                                        <option value="Auto">自动</option>
+                                                        <option value="20">20MHz</option>
+                                                        <option value="40">40MHz</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-4 col-md-5 help-block cur-bandWidth">
+                                                    当前频宽：
+                                                    <span id="wifiBandwidthCurrent">20MHz</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group none" id="wifiAntijamWrap">
+                                                <label class="col-sm-4 col-md-3 control-label">无线抗干扰</label>
+                                                <div class="col-sm-8">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="wifiAntijamEn" name="wifiAntijamEn"
+                                                               value="true">启用<span class="help-block" style="display:inline;
+                                                               margin-left:10px">当周围无线信号过多时，启用此选项可增强信号的抗干扰能力</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <!--End Wireless Parameters-->
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </section>
+    <footer class="container navbar-fixed-bottom">
+        <div class="row">
+            <div class="col-sm-3 col-lg-2 hidden-xs nav-footer-icon" id="nav-footer-icon"></div>
+            <div class="col-sm-9 col-lg-10 main-footer">
+                <button class="btn btn-frist btn-primary" id="submit">确定</button>
+                <button class="btn" id="cancel" style="min-width: 70px">取消</button>
+            </div>
+        </div>
+    </footer>
+</div>
+<div id="feedly-mini"  title="feedly Mini tookit"></div>
+<script src="js/index.js"></script>
+</body>
+</html>
