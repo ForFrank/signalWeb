@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="css/reasyui.css">
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        function upFiles() {
+            var formData = new FormData($( "#uploadForm" )[0]);
+            $.ajax({
+                url: '/files/upFiles.do',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                //dataType:'json',
+                success: function (returndata) {
+                    alert(returndata.msg);
+                    console.log(1);
+                },
+                error: function (returndata) {
+                    alert(returndata);
+                    console.log(2);
+
+                }
+            });
+        }
+
+        /*function addFiles(){
+            var formData = new FormData();
+            for(var i=0; i<$('#file')[0].files.length;i++){
+                formData.append('files', $('#file')[0].files[i]);
+            }
+            $.ajax({
+                url: "/files/addFiles.do",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (returndata) {
+                    alert(returndata.msg);
+                },
+                error: function (returndata) {
+                    alert(returndata);
+                }
+            });
+        }*/
+
+    </script>
+    <script src="js/libs/reasy-ui-1.0.3.js"></script>
+</head>
+<body>
+<section class="container-fluid">
+
+<form class="form-horizontal" id= "uploadForm">
+    <fieldset>
+    <p >上传单个文件： <input type="file" name="file"/>
+        <input type="button"  value="上传" onclick="upFiles()" /></p>
+    </fieldset>
+</form>
+
+<!--<form enctype="multipart/form-data">
+    <p >上传多个文件：<input  type="file" multiple="multiple" id="file" name="files" >
+        <input  type="button" id="btn" value="提交" onclick="addFiles()" /></p>
+</form>-->
+    <fieldset>
+       <a href="/user/test/xxxx.cfg" download="文件名.cfg">点击下载</a>
+    </fieldset>
+</section>
+</body>
+</html>

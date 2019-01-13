@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reasyui.css">
+    <script src="js/libs/jquery-1.11.2.js"></script>
+</head>
+<style>
+    .channel-left{
+        border: 2px solid #ccc;
+        float: left;
+    }
+    .channel td{
+        width: 50px;
+        height: 30px;
+        border-top:5px solid white;
+        border-bottom:5px solid white;
+    }
+    .channel-min, .channel-right{
+        height: 492px;
+        float: left;
+        margin-left:5px;
+        border: 2px solid #ccc;
+        background: #ccc;
+    }
+    .channel-min td{
+        height: 30px;
+        border-top:5px solid #ccc;
+        border-bottom:5px solid #ccc;
+    }
+    .channel-right td{
+        height: 20px;
+        width: 36px;
+        border: 2px solid black;
+    }
+</style>
+<body>
+<section class="container-fluid">
+    <form class="form-horizontal">
+        <h2 class="legend">信号机运行状态</h2>
+        <fieldset>
+            <h5>Mode：</h5>
+            <table >
+                <thead>
+                <tr>
+                    <td>设备时钟：</td>
+                    <td style="width: 300px; text-align:left" id="localtime"></td>
+                    <td>运行模式：</td>
+                    <td ></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align:left">设备状态：</td>
+                    <td ></td>
+                    <td style="text-align:right">周期：</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="text-align:right">运行状态：</td>
+                    <td></td>
+                    <td style="text-align:right">相位差：</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+    <form class="form-horizontal">
+        <h2 class="legend">通道状态</h2>
+        <fieldset>
+            <div class="channel-left">
+                <table class="channel">
+                    <tbody id="phase1"></tbody>
+                </table>
+            </div>
+            <div class="channel-min">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="background: red">A：南</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #0ff">B：北</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #0f0">C：东</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="channel-right">
+                <div class="channel-right-top">
+                    <h5>路口状态</h5>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>模式</td>
+                            <td>阶段</td>
+                            <td>方案</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>阶段</td>
+                            <td>时长</td>
+                            <td>间隔</td>
+                            <td>周期</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="height: 60px;"></div>
+                </div>
+                <div class="channel-right-bottom">
+                    <h5>检测器</h5>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>模式</td>
+                            <td>阶段</td>
+                            <td>方案</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
+<script>
+    //设置行，列
+    var cols=13; //11列
+    var rows=16; //16行
+    var htmlstr="<tr>";
+    for(var i=0;i<rows;i++){
+        if (i<10) {
+            i = "0" +i;
+        }
+        for(var j=0;j<cols;j++){
+            if (j<10) {
+                j = "0" +j;
+            }
+            htmlstr+="<td id="+"p"+i+j+"></td>";
+        }
+        htmlstr+="</tr>";
+    }
+    document.getElementById('phase1').innerHTML = htmlstr;
+    var fun = function() {
+        $.ajax({
+            type: "get",
+            url: "http://localhost:3003/test1",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                fillDatas(data);
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+        function fillDatas(rect_data) {
+            $.each(rect_data[0],function(key,item){
+                switch (item)
+                {
+                    case 0:
+                        document.getElementById(key).style.background = "#f00";
+                        break;
+                    case 1:
+                        document.getElementById(key).style.background = "#0f0";
+                        // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
+                        break;
+                    case 2:
+                        document.getElementById(key).style.background = "#ff0";
+                        break;
+                }
+            })
+        }
+    };
+    setInterval(fun,1000);
+</script>
+</body>
+</html>

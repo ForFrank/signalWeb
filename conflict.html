@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reasyui.css">
+</head>
+<body>
+<section class="container-fluid">
+    <form class="form-horizontal" id="attachedDevices">
+        <h2 class="legend">连接设备</h2>
+        <fieldset><div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-sm-4">设备名称</th>
+                    <th class="col-sm-1 hidden-max-sm">下载速度</th>
+                    <th class="col-sm-1 hidden-max-md">上传速度</th>
+                    <th class="col-sm-2 hidden-max-xs">下载限制</th>
+                    <th class="col-sm-2 hidden-max-md">上传限制</th>
+                    <th class="col-sm-2 col-xs-4">互联网访问</th>
+                </tr>
+                </thead>
+                <tbody id="qosList">
+                <tr class="">
+                    <td>
+                        <div class="col-xs-10 span-fixed deviceName" title="Frank">Frank</div>
+                        <div class="col-xs-10 none">
+                            <input type="text" class="form-control setDeviceName" value="" maxlength="20" data-mark="Frank" alt="E0:9D:31:F8:DE:28">
+                        </div>
+                        <div class="col-xs-2 row">
+                                                    <span class="ico-small icon-edit">
+
+                                                    </span>
+                        </div>
+                        <div class="col-xs-12 help-inline">
+                                                    <span class="ico-small icon-wireless">
+
+                                                    </span> <span>192.168.0.100（本机）</span>
+                        </div>
+                    </td>
+                    <td class="span-fixed hidden-max-sm" style="width:10%;">
+                        <span class="text-success">↓</span>
+                        <span>0KB/s</span>
+                    </td>
+                    <td class="span-fixed hidden-max-md" style="width:10%;">
+                        <span class="text-warning">↑</span>
+                        <span>0KB/s</span>
+                    </td>
+                    <td class="hidden-max-xs">
+                                                <span class="dropdown qosListDownLimit input-medium validatebox input-append" required="required" maxlength="5">
+                                                    <input class="form-control input-box" type="text" value="No Limit" maxlength="5">
+                                                    <input type="hidden" value="No Limit">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="dropdown-toggle toggle btn btn-sm">
+                                                            <span class="icon-caret">
+
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-menu">
+                                                            <li data-val="No Limit">
+                                                                <a>无限制</a>
+                                                            </li>
+                                                            <li data-val="128">
+                                                                <a>128 KB/s（可正常浏览网页）</a>
+                                                            </li>
+                                                            <li data-val="256">
+                                                                <a>256 KB/s（可观看标清视频）</a>
+                                                            </li><li data-val="512">
+                                                            <a>512 KB/s（可观看高清视频）</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li data-val=".hand-set"><a>手动（单位：KB/s）</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                    </td>
+                    <td class="hidden-max-md">
+                                                <span class="dropdown qosListUpLimit input-medium validatebox input-append" required="required" maxlength="5">
+                                                    <input class="form-control input-box" type="text" value="No Limit" maxlength="5">
+                                                    <input type="hidden" value="No Limit">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="dropdown-toggle toggle btn btn-sm">
+                                                            <span class="icon-caret"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <ul class="dropdown-menu">
+                                                            <li data-val="No Limit"><a>无限制</a></li>
+                                                            <li data-val="32"><a>32KB/s</a></li>
+                                                            <li data-val="64"><a>64KB/s</a></li>
+                                                            <li data-val="128"><a>128KB/s</a></li>
+                                                            <li class="divider"></li>
+                                                            <li data-val=".hand-set"><a>手动（单位：KB/s）</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                    </td>
+                    <td>
+                        <div class="switch icon-toggle-on">
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </fieldset>
+    </form>
+    <!--End Attached Devices-->
+    <form class="form-horizontal" id="blockedDevices">
+        <h2 class="legend">禁止上网设备<span id="blockedDeviceCount">(0)</span></h2>
+        <fieldset>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-4">设备名称</th>
+                        <th class="col-xs-4 hidden-max-xs">MAC地址</th>
+                        <th class="col-xs-4">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="qosListAccess">
+                    <tr>
+                        <td colspan="2">没有设备</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</section>
+</body>
+</html>

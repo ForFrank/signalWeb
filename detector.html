@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reasyui.css">
+</head>
+<body>
+<section class="container-fluid">
+    <form class="form-horizontal" id="loginPwd">
+        <h2 class="legend">登录密码</h2>
+        <fieldset>
+            <div class="form-group none" id="oldPwdWrap" style="display: none;">
+                <label class="col-sm-4 col-md-3 control-label" for="oldPwd">原密码</label>
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <input type="password" id="oldPwd" name="oldPwd" class="form-control
+                                        placeholder-text" maxlength="32"
+                           data-options="{&quot;type&quot;: &quot;pwd&quot;, &quot;args&quot;:[5,32]}"
+                           placeholder="请输入数字或字母">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="newPwd">新密码</label>
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <input type="password" id="newPwd" name="newPwd"
+                           class="form-control validatebox placeholder-text"
+                           maxlength="32"
+                           data-options="{&quot;type&quot;: &quot;pwd&quot;, &quot;
+                                               args&quot;:[5,32]}" placeholder="请输入数字或字母">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="cfmPwd">确认密码</label>
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <input type="password" id="cfmPwd" name="cfmPwd"
+                           class="form-control validatebox placeholder-text"
+                           maxlength="32" data-options="{&quot;type&quot;: &quot;
+                                               pwd&quot;, &quot;args&quot;:[5,32]}"
+                           placeholder="确认密码">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <!--End Login Password-->
+    <form class="form-horizontal" id="wanParam">
+        <h2 class="legend">WAN口参数</h2>
+        <fieldset>
+            <div id="serverNameWrap" class="none" style="display: none;">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label"
+                           for="wanServerType">服务器名称</label>
+                    <div class="col-sm-4">
+                        <select id="wanServerType" name="wanServerType"
+                                class="form-control" style="margin-bottom:10px">
+                            <option value="default">默认</option>
+                            <option value="manual">自定义</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p id="wanServerTip" class="help-block">如非必要，请勿更改</p>
+                        <input type="text" class="validatebox form-control none placeholder-text"
+                               id="wanServerName" required="required" maxlength="64"
+                               data-options="{&quot;type&quot;:&quot;ascii&quot;}"
+                               placeholder="默认">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="wanServiceType">服务名称</label>
+                    <div class="col-sm-4">
+                        <select id="wanServiceType" name="wanServiceType" class="form-control"
+                                style="margin-bottom:10px">
+                            <option value="default">默认</option>
+                            <option value="manual">自定义</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <p id="wanServiceTip" class="help-block">如非必要，请勿更改</p>
+                        <input type="text" class="validatebox form-control none placeholder-text"
+                               id="wanServiceName" required="required" maxlength="64"
+                               data-options="{&quot;type&quot;:&quot;ascii&quot;}"
+                               placeholder="默认">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="wanMTU">MTU</label>
+                <div class="col-sm-4">
+                                        <span id="wanMTU" class="dropdown validatebox input-append"
+                                              required="required"
+                                              data-options="{&quot;type&quot;:&quot;num&quot;, &quot;
+                                              args&quot;:[576, 1500]}">
+                                            <input class="form-control input-box"
+                                                   type="text" value="1500">
+                                            <input type="hidden" value="1500">
+                                            <div class="btn-group">
+                                                <button type="button" class="dropdown-toggle toggle btn btn-sm">
+                                                    <span class="icon-caret"></span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown">
+                                                <ul class="dropdown-menu" style="display: none;">
+                                                    <li data-val="1400"><a>1400</a></li>
+                                                    <li data-val="1450"><a>1450</a></li>
+                                                    <li data-val="1480"><a>1480</a></li>
+                                                    <li data-val="1492"><a>1492</a></li>
+                                                    <li class="divider"></li>
+                                                    <li data-val=".hand-set"><a>手动</a></li>
+                                                </ul>
+                                            </div>
+                                        </span>
+                </div>
+                <div class="col-sm-4 col-md-5 help-block">
+                    当前MTU：
+                    <span id="wanMTUCurrent">1500</span>
+                    &nbsp;
+                    <span>如非必要，请勿更改</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="macClone">克隆MAC地址</label>
+                <div class="col-sm-4">
+                    <select id="macClone" name="macClone" class="form-control"
+                            style="margin-bottom:10px">
+                        <option value="default">默认MAC地址</option>
+                        <option value="manual">手动</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <p id="macCurrenWrap" class="help-block none"
+                       style="display: block;">默认MAC地址：50:2B:73:16:87:B8</p>
+                    <input type="text" class="validatebox form-control none"
+                           id="macCurrentWan" required="required" maxlength="17"
+                           data-options="{&quot;type&quot;:&quot;mac&quot;}"
+                           style="display: none;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="wanSpeed">WAN口速率</label>
+                <div class="col-sm-4">
+                    <select id="wanSpeed" name="wanSpeed" class="form-control">
+                        <option value="Auto">自动</option>
+                        <option value="100">100M全双工</option>
+                        <option value="-100">100M半双工</option>
+                        <option value="10">10M全双工</option>
+                        <option value="-10">10M半双工</option>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-5 help-block">
+                    当前速率：
+                    <span id="wanSpeedCurrent">10M半双工</span>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <!--End WAN Parameters-->
+    <form class="form-horizontal" id="lanParame">
+        <h2 class="legend">LAN口参数</h2>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="lanIP">LAN IP</label>
+                <div class="col-sm-4">
+                    <input type="text" id="lanIP" name="lanIP" class="form-control validatebox"
+                           maxlength="15" required="required"
+                           data-options="{&quot;type&quot;:&quot;ip&quot;}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="lanMask">子网掩码</label>
+                <div class="col-sm-4">
+                    <input type="text" id="lanMask" name="lanMask" class="form-control validatebox"
+                           maxlength="15" required="required"
+                           data-options="{&quot;type&quot;:&quot;lanMaskExt&quot;}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label" for="dhcpEn">DHCP服务器</label>
+                <div class="col-sm-4">
+                    <label class="checkbox-inline" for="dhcpEn">
+                        <input type="checkbox" id="dhcpEn" name="dhcpEn" value="true">启用</label>
+                </div>
+            </div>
+            <div id="dnsWrap" class="none" style="display: block;">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="lanDhcpStartIP">起始IP</label>
+                    <div class="col-sm-4">
+                        <span class="ipNet">192.168.0.</span>
+                        <input type="text" id="lanDhcpStartIP" name="lanDhcpStartIP"
+                               class="form-control validatebox input-mini" maxlength="15"
+                               required="required"
+                               data-options="{&quot;type&quot;:&quot;num&quot;, &quot;
+                                                   args&quot;:[1,254]}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="lanDhcpEndIP">结束IP</label>
+                    <div class="col-sm-4">
+                        <span class="ipNet">192.168.0.</span>
+                        <input type="text" id="lanDhcpEndIP" name="lanDhcpEndIP"
+                               class="form-control validatebox input-mini"
+                               maxlength="15" required="required" d
+                               ata-options="{&quot;type&quot;:&quot;num&quot;, &quot;
+                                                   args&quot;:[1,254]}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="lanDns1">
+                        首选DNS
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" id="lanDns1" name="lanDns1"
+                               class="form-control validatebox" maxlength="15"
+                               required="required"
+                               data-options="{&quot;type&quot;:&quot;ip&quot;}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="lanDns2">备用DNS</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="lanDns2" name="lanDns2"
+                               class="form-control validatebox"
+                               maxlength="15"
+                               data-options="{&quot;type&quot;:&quot;ip&quot;}">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="form-horizontal"
+         id="deviceManage">
+        <h2 class="legend">设备管理</h2>
+        <div class="fieldset">
+            <form name="rebootfrm" method="post" action="/goform/sysReboot">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="reboot">重启路由器</label>
+                    <div class="col-sm-4 col-md-3">
+                        <button type="button" name="reboot" id="reboot" class="btn btn-block">重启设备</button>
+                    </div>
+                </div>
+            </form>
+            <form name="restorefrm" method="post" action="/goform/sysRestore">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="restore">恢复出厂设置</label>
+                    <div class="col-sm-4 col-md-3">
+                        <button type="button" name="reboot" id="restore" class="btn btn-block">
+                            恢复出厂
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form name="exportCfgfrm" method="post" action="/goform/exportConfig">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label"
+                           for="exportConfig">
+                        导出配置信息
+                    </label>
+                    <div class="col-sm-4 col-md-3">
+                        <button type="button" name="exportConfig" id="exportConfig"
+                                class="btn btn-block">导出配置</button>
+                    </div>
+                </div>
+            </form>
+            <form name="inportfrm" id="inportfrm" method="post"
+                  action="cgi-bin/inport" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label"
+                           for="inport">导入配置信息</label>
+                    <div class="col-sm-4 col-md-3 file">
+                        <button type="button" name="inport" id="inport" class="btn btn-block">
+                            导入配置
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form name="restorefrm" method="post" action="/goform/exportSysLog">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label" for="export">导出系统日志
+                    </label>
+                    <div class="col-sm-4 col-md-3">
+                        <button type="button" name="export" id="export"
+                                class="btn btn-block">导出日志
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form name="upgradefrm" id="upgradefrm" method="post"
+                  action="cgi-bin/upgrade"
+                  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 control-label"
+                           for="upgrade">软件升级</label>
+                    <div class="col-sm-4 col-md-3 file">
+                        <button type="button" name="upgrade" id="upgrade"
+                                class="btn btn-block">浏览…</button>
+                    </div>
+                    <div class="col-sm-4 col-md-5 help-block">当前软件版本：
+                        <span id="firmwareVision">V12.01.01.33_cn</span>
+                    </div>
+                </div>
+            </form>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label"
+                       for="firmwareAutoMaintenanceEn">系统自动维护</label>
+                <div class="col-sm-4 col-md-3">
+                    <label class="checkbox-inline" for="firmwareAutoMaintenanceEn">
+                        <input type="checkbox" name="firmwareAutoMaintenanceEn"
+                               id="firmwareAutoMaintenanceEn" value="true">启用</label>
+                </div>
+                <div class="col-sm-offset-4 col-md-offset-3 col-sm-8 col-md-9">
+                    <p class="help-block">每天02:00~05:30，当无人使用网络时，自动重启一次路由器</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Device Management-->
+</section>
+</body>
+</html>
