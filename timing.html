@@ -2,485 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>配时方案</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <!--<script src="js/phase.js"></script><-->
+    <script>
+        //设置行，列
+        var cols=4; //11列
+        var rows=16; //16行
+        var htmlstr="<tr>";
+        for(i=1;i<=rows;i++){
+            htmlstr+="<td class='col-sm-1'>"+i+"</td>";
+            if (i<10) {
+                i = "0" +i;
+            };
+            for(j=1;j<=cols;j++){
+                if (j<10) {
+                    j = "0" +j;
+                };
+                htmlstr+="<td class='col-sm-1'><input class='form-control' type='text' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
+            }
+            htmlstr+="</tr>";
+        }
+        document.getElementById('phase1').innerHTML = htmlstr;
+
+        $.ajax({
+            type: "POST",
+            url: "/test",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                $.each(data,function(key,item){
+                    $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                })
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+        function mysubmit()
+        {
+            if(window.confirm("确定要提交吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/test",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
+                    success:function(data){
+                        console.log(data);
+                        $.each(data,function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error: function(data, type, err){
+                        console.log("ajax错误类型："+type);
+                        console.log(err);
+                    }
+                });
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/test",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                        $.each(data,function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        };
+
+    </script>
 </head>
 <body>
 <section class="container-fluid">
-    <form class="form-horizontal" id="attachedDevices">
-        <h2 class="legend">日计划</h2>
+    <form class="form-horizontal" id="form1" action="#">
+        <h2 class="legend">相位配置</h2>
         <fieldset>
-            <div class="col-xs-12">
+            <div class="col-lg-12">
                 <table class="table">
                     <thead>
                     <tr>
                         <th class="col-sm-1">序号</th>
-                        <th class="col-sm-1">小时</th>
-                        <th class="col-sm-1">分钟</th>
-                        <th class="col-sm-1">模式</th>
-                        <th class="col-sm-1">事件</th>
-                        <th class="col-sm-1">方案</th>
-                        <th class="col-sm-1">功能1</th>
-                        <th class="col-sm-1">功能2</th>
+                        <th class="col-sm-1">周期</th>
+                        <th class="col-sm-1">相位差</th>
+                        <th class="col-sm-1">协调相位</th>
+                        <th class="col-sm-1">绿信比</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td class="col-sm-1">1</td>
-                        <td class="col-sm-1">
-                            <input id="d0101" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0102" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0103" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0104" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0105" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0106" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0107" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">2</td>
-                        <td class="col-sm-1">
-                            <input id="d0201" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0202" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0203" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0204" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0205" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0206" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0207" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">3</td>
-                        <td class="col-sm-1">
-                            <input id="d0301" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0302" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0303" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0304" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0305" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0306" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0307" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">4</td>
-                        <td class="col-sm-1">
-                            <input id="d0401" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0402" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0403" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0404" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0405" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0406" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0407" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">5</td>
-                        <td class="col-sm-1">
-                            <input id="d0501" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0502" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0503" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0504" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0505" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0506" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0507" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">6</td>
-                        <td class="col-sm-1">
-                            <input id="d0601" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0602" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0603" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0604" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0605" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0606" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0607" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">7</td>
-                        <td class="col-sm-1">
-                            <input id="d0701" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0702" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0703" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0704" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0705" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0706" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0707" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">8</td>
-                        <td class="col-sm-1">
-                            <input id="d0801" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0802" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0803" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0804" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0805" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0806" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0807" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">9</td>
-                        <td class="col-sm-1">
-                            <input id="d0901" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0902" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d0903" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0904" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0905" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0906" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0907" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">10</td>
-                        <td class="col-sm-1">
-                            <input id="d1001" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1002" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1003" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1004" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1005" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1006" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1007" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">11</td>
-                        <td class="col-sm-1">
-                            <input id="d1101" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1102" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1103" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1104" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1105" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1106" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1107" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">12</td>
-                        <td class="col-sm-1">
-                            <input id="d1201" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1202" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1203" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1204" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1205" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1206" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1207" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">13</td>
-                        <td class="col-sm-1">
-                            <input id="d1301" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1302" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1303" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1304" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1305" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1306" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1307" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">14</td>
-                        <td class="col-sm-1">
-                            <input id="d1401" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1402" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1403" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1404" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1405" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1406" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1407" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">15</td>
-                        <td class="col-sm-1">
-                            <input id="d1501" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1502" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1503" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1504" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1505" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1506" ype="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1507" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">16</td>
-                        <td class="col-sm-1">
-                            <input id="d1601" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1602" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <select  id="d1603" class="form-control" >
-                                <option value="default">协调</option>
-                                <option value="manual">感应</option>
-                                <option value="manual">传统</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1604" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1605" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1606" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d1607" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    </tbody>
+                    <tbody id="phase1"></tbody>
                 </table>
             </div>
             <div class="main-submit">
-                <button class="btn btn-frist btn-primary">提交</button>
-                <button class="btn">&lt&lt</button>
-                <button class="btn">&gt&gt</button>
+                <button class="btn btn-frist btn-primary" type="button" onclick="mysubmit()">提交</button>
+                <button class="btn btn-frist btn-primary" type="button"  onclick="myrst()">重置</button>
             </div>
         </fieldset>
     </form>
