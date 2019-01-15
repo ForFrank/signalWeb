@@ -6,14 +6,22 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
     <script src="js/libs/jquery-1.11.2.js"></script>
+    <style>
+        .choose td{
+            font-size: .1em;
+        }
+        .choose input{
+            width: 9px;
+        }
+    </style>
     <script>
         //设置行，列
         var cols=50; //11列
         var rows=8; //16行
-        var htmlstr="<tr>";
+        var htmlstr=" ";
         for(i=1;i<=rows;i++){
-            htmlstr+="<td rowspan='2'>"+i+"</td>" +
-                "<td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
+            htmlstr+="<tr><td rowspan='2'>"+i+"</td>" +
+                "</td><td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
                 "<td style='background: #9999FF'>4</td><td style='background: #9999FF'>5</td><td style='background: #9999FF'>6</td>" +
                 "<td style='background: #9999FF'>7</td><td style='background: #9999FF'>8</td><td style='background: #9999FF'>9</td>" +
                 "<td style='background: #9999FF'>10</td><td style='background: #9999FF'>11</td><td style='background: #9999FF'>12</td>" +
@@ -30,18 +38,18 @@
                 "<td style='background: #CCFFCC'>31</td><td style='background: #FFCC99'>1</td><td style='background: #FFCC99'>2</td>" +
                 "<td style='background: #FFCC99'>3</td><td style='background: #FFCC99'>4</td><td style='background: #FFCC99'>5</td>" +
                 "<td style='background: #FFCC99'>6</td><td style='background: #FFCC99'>7</td><td>1</td>" +
-                "</tr><tr>";
+                "<td><input id="+i+" type='button' onclick=\"allCkb('test1')\" value='全选' style='width:35px;height:20px'></tr><tr>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "0" +j;
-                };
+                }
                 htmlstr+="<td><input " +
                     "type='checkbox' name='test1' value="+"P"+i+j+"></td>";
             }
-            htmlstr+="<td><input class='form-control' type='text' name="+"p"+i+" id="+"P"+i+"></td></tr>";
+            htmlstr+="<td><input type='text' name="+"p"+i+" id="+"P"+i+" style='width:30px;height:20px'></td><td><input id="+"revSelect"+i+" onclick=\"unAllCkb('test1')\" type='button' value='反选' style='width:35px;height:20px'></tr>";
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
@@ -52,7 +60,6 @@
                 $.each(data, function(i,item){
                     $("input[name=test1][value="+item+"]").attr("checked","checked");
                 });
-
             },
             error:function(){
                 alert("加载资源失败");
@@ -81,6 +88,41 @@
                 return false;
             }
         }
+        //全选
+        function allCkb(items){
+            var testrows = event.srcElement.parentElement.parentElement.rowIndex;
+            var checkrows = 0;
+            if (testrows === 1) {
+                checkrows = testrows;
+            } else {
+                checkrows = (testrows+1)/2;
+            }
+            console.log(checkrows);
+                for (var i =0; i<=cols; i++) {
+                    if (i<10) {
+                        i = "0" +i;
+                    }
+                    $('[name='+items+'][value='+'P0'+checkrows+i+']:checkbox').prop("checked", true);
+                }
+        }
+        //反选
+        function unAllCkb(items){
+            var testrows = event.srcElement.parentElement.parentElement.rowIndex;
+            var checkrows = 0;
+            if (testrows === 1) {
+                checkrows = testrows;
+            } else {
+                checkrows = testrows/2;
+            }
+            console.log(checkrows);
+            console.log(testrows);
+            for (var i =0; i<=cols; i++) {
+                if (i<10) {
+                    i = "0" +i;
+                }
+                $('[name='+items+'][value='+'P0'+checkrows+i+']:checkbox').prop("checked", false);
+            }
+        }
     </script>
 </head>
 <body>
@@ -92,14 +134,15 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="col-sm-1">No</th>
+                    <th>No</th>
                     <th colspan="12">月份</th>
                     <th colspan="31">月日</th>
                     <th colspan="7">星期</th>
-                    <th class="col-sm-1">计划</th>
+                    <th>计划</th>
+                    <th>选择</th>
                 </tr>
                 </thead>
-                <tbody id="phase1">
+                <tbody class="choose" id="phase1">
                 </tbody>
             </table>
             </div>

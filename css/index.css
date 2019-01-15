@@ -1,4 +1,7 @@
 @charset "UTF-8";html,body{height:100%}
+li{
+   list-style: none;
+}
 .index-body {
     background-color:#d7d7d7;
     overflow-y:scroll}

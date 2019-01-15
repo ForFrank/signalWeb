@@ -8,6 +8,11 @@
     <script src="js/libs/jquery-1.11.2.js"></script>
 </head>
 <style>
+    .channel-top li{
+        float: left;
+        padding: 0 12px 6px;
+        list-style: none;
+    }
     .channel-left{
         border: 2px solid #ccc;
         float: left;
@@ -19,7 +24,7 @@
         border-bottom:5px solid white;
     }
     .channel-min, .channel-right{
-        height: 492px;
+        height: 490px;
         float: left;
         margin-left:5px;
         border: 2px solid #ccc;
@@ -30,46 +35,42 @@
         border-top:5px solid #ccc;
         border-bottom:5px solid #ccc;
     }
-    .channel-right td{
+    .channel-right-top td, .channel-right-center td{
         height: 20px;
-        width: 36px;
+        width: 31px;
         border: 2px solid black;
+    }
+    .channel-right-bottom td{
+        height: 20px;
+        width: 39px;
+        border: 2px solid black;
+    }
+    .channel-right-top,.channel-right-bottom{
+        border: 1px solid #707070;
+    }
+   .channel-right-top-bottom, .channel-right-bottom{
+        margin-top: 5px;
     }
 </style>
 <body>
 <section class="container-fluid">
     <form class="form-horizontal">
-        <h2 class="legend">信号机运行状态</h2>
+        <h2 class="legend">信号机状态</h2>
         <fieldset>
-            <h5>Mode：</h5>
-            <table >
-                <thead>
-                <tr>
-                    <td>设备时钟：</td>
-                    <td style="width: 300px; text-align:left" id="localtime"></td>
-                    <td>运行模式：</td>
-                    <td ></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="text-align:left">设备状态：</td>
-                    <td ></td>
-                    <td style="text-align:right">周期：</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td style="text-align:right">运行状态：</td>
-                    <td></td>
-                    <td style="text-align:right">相位差：</td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
+            <ul class="channel-top">
+                <li><input type="button" value="GPS对时"></li>
+                <li><input type="button" value="中心对时"></li>
+                <li><input type="button" value="NC"></li>
+                <li><input type="button" value="方案同步"></li>
+                <li><input type="button" value="GPS正常"></li>
+                <li><input type="button" value="信号机开灯"></li>
+                <li><input type="button" value="信号机故障"></li>
+                <li><input type="button" value="信号机告警"></li>
+            </ul>
         </fieldset>
     </form>
     <form class="form-horizontal">
-        <h2 class="legend">通道状态</h2>
+        <h2 class="legend">相位状态</h2>
         <fieldset>
             <div class="channel-left">
                 <table class="channel">
@@ -80,77 +81,85 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td style="background: red">A：南</td>
+                            <td>A:南</td>
                         </tr>
                         <tr>
-                            <td style="background: #0ff">B：北</td>
+                            <td>B:北</td>
                         </tr>
                         <tr>
-                            <td style="background: #0f0">C：东</td>
+                            <td>C:东</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="channel-right">
                 <div class="channel-right-top">
-                    <h5>路口状态</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <td>模式</td>
-                            <td>阶段</td>
-                            <td>方案</td>
-                        </tr>
-                        <tr>
-                            <td>0</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>阶段</td>
-                            <td>时长</td>
-                            <td>间隔</td>
-                            <td>周期</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div style="height: 60px;"></div>
+                    <div class="channel-right-top-top">
+                        <h5>路口状态</h5>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td>模式</td>
+                                <td>阶段</td>
+                                <td>方案</td>
+                                <td>协调</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="channel-right-top-bottom">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>开始</td>
+                                <td>阶段</td>
+                                <td>时长</td>
+                                <td>间隔</td>
+                                <td>周期</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div style="height: 60px;"></div>
+                    </div>
                 </div>
                 <div class="channel-right-bottom">
                     <h5>检测器</h5>
                     <table>
                         <tbody>
                         <tr>
-                            <td></td>
-                            <td>模式</td>
-                            <td>阶段</td>
-                            <td>方案</td>
+                            <td>路口</td>
+                            <td>状态</td>
+                            <td>流量</td>
+                            <td>占有率</td>
                         </tr>
                         <tr>
                             <td>0</td>
@@ -171,7 +180,7 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td>3</td>
                             <td></td>
                             <td></td>
                             <td></td>
