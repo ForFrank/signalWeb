@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/constraint.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/earlyend.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/first.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/greeninterval.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lamp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/latestart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phaselamp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phaseparameter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programme.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirement.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statephase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transition.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/urgent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conflict.html" beforeDir="false" afterPath="$PROJECT_DIR$/conflict.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/follow.html" beforeDir="false" afterPath="$PROJECT_DIR$/follow.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passageway.html" beforeDir="false" afterPath="$PROJECT_DIR$/passageway.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state.html" beforeDir="false" afterPath="$PROJECT_DIR$/state.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timing.html" beforeDir="false" afterPath="$PROJECT_DIR$/timing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yearplan.html" beforeDir="false" afterPath="$PROJECT_DIR$/yearplan.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,153 +32,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="passageway.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/passageway.html">
+      <file leaf-file-name="programme.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/programme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+            <state relative-caret-position="300">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phase.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phase.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="112" column="75" lean-forward="true" selection-start-line="112" selection-start-column="75" selection-end-line="112" selection-end-column="75" />
-              <folding>
-                <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="operation_log.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/operation_log.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="follow.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/follow.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="split.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/split.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="134" column="10" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yearplan.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yearplan.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#20;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#21;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#22;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#23;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#24;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#25;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#26;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#27;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#28;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#29;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#30;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#31;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#32;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#33;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#34;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#35;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#36;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#37;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#38;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#39;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#40;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#41;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#42;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#43;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#44;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#45;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#46;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#47;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#48;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#49;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#50;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#52;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/index.js">
+      <file leaf-file-name="requirement.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirement.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
-              <caret line="11" column="17" selection-start-line="1" selection-end-line="13" selection-end-column="49" />
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.html">
+      <file leaf-file-name="follow.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/follow.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="20" column="94" lean-forward="true" selection-start-line="20" selection-start-column="94" selection-end-line="20" selection-end-column="94" />
+            <state relative-caret-position="770">
+              <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timing.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/timing.html">
+      <file leaf-file-name="statephase.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/statephase.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="116" column="47" lean-forward="true" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
+            <state relative-caret-position="275">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transition.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transition.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urgent.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/urgent.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phaselamp.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phaselamp.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phaseparameter.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phaseparameter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="first.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/first.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="latestart.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/latestart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -199,19 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index7.html" />
-        <option value="$PROJECT_DIR$/index9.html" />
-        <option value="$PROJECT_DIR$/index5.html" />
-        <option value="$PROJECT_DIR$/index10.html" />
-        <option value="$PROJECT_DIR$/index4.html" />
-        <option value="$PROJECT_DIR$/相位配置test.html" />
-        <option value="$USER_HOME$/Desktop/信号机web/webcopy/192.168.0.1/js/advanced.js" />
-        <option value="$USER_HOME$/Desktop/信号机web/webcopy/192.168.0.1/wechart.html" />
-        <option value="$PROJECT_DIR$/模板2.html" />
-        <option value="$PROJECT_DIR$/运行状态test.html" />
-        <option value="$PROJECT_DIR$/advanced.html" />
-        <option value="$PROJECT_DIR$/模板.html" />
-        <option value="$PROJECT_DIR$/跟随相位.html" />
         <option value="$PROJECT_DIR$/绿冲突表.html" />
         <option value="$PROJECT_DIR$/检测器表.html" />
         <option value="$PROJECT_DIR$/年计划表.html" />
@@ -240,16 +172,29 @@
         <option value="$PROJECT_DIR$/detector.html" />
         <option value="$PROJECT_DIR$/center.html" />
         <option value="$PROJECT_DIR$/state.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/../webcopy/192.168.0.1/js/indexfdd5.js" />
-        <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/conflict.html" />
         <option value="$PROJECT_DIR$/follow.html" />
         <option value="$PROJECT_DIR$/passageway.html" />
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/timing.html" />
         <option value="$PROJECT_DIR$/yearplan.html" />
+        <option value="$PROJECT_DIR$/transition.html" />
+        <option value="$PROJECT_DIR$/constraint.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/lamp.html" />
+        <option value="$PROJECT_DIR$/phaselamp.html" />
+        <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/css/index.css" />
+        <option value="$PROJECT_DIR$/earlyend.html" />
+        <option value="$PROJECT_DIR$/greeninterval.html" />
+        <option value="$PROJECT_DIR$/first.html" />
+        <option value="$PROJECT_DIR$/latestart.html" />
+        <option value="$PROJECT_DIR$/phaseparameter.html" />
+        <option value="$PROJECT_DIR$/programme.html" />
+        <option value="$PROJECT_DIR$/requirement.html" />
+        <option value="$PROJECT_DIR$/statephase.html" />
+        <option value="$PROJECT_DIR$/urgent.html" />
       </list>
     </option>
   </component>
@@ -380,12 +325,12 @@
       <workItem from="1547427051313" duration="9940000" />
       <workItem from="1547510976243" duration="6807000" />
       <workItem from="1547517853384" duration="15369000" />
-      <workItem from="1547602619367" duration="3622000" />
+      <workItem from="1547602619367" duration="11643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273519000" />
+    <option name="totallyTimeSpent" value="281540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -422,43 +367,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="224" column="22" selection-start-line="224" selection-start-column="22" selection-end-line="224" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/common.js" />
-    <entry file="file://$PROJECT_DIR$/js/libs/j.js" />
-    <entry file="file://$USER_HOME$/Desktop/信号机web/webcopy/192.168.0.1/wechart.html" />
-    <entry file="file://$PROJECT_DIR$/phase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="765" selection-start-line="765" selection-end-line="769" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dayplan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="120" selection-start-line="120" selection-end-line="598" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/模板2.html" />
-    <entry file="file://$PROJECT_DIR$/state.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="121" selection-start-line="121" selection-end-line="399" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index2.html" />
-    <entry file="file://$PROJECT_DIR$/index3.html" />
-    <entry file="file://$PROJECT_DIR$/index4.html" />
-    <entry file="file://$PROJECT_DIR$/index5.html" />
-    <entry file="file://$PROJECT_DIR$/index7.html" />
     <entry file="file://$PROJECT_DIR$/index6.html" />
     <entry file="file://$PROJECT_DIR$/demo.html" />
     <entry file="file://$PROJECT_DIR$/img/logo-inverse.png">
@@ -511,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/phase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/phase.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/baidu.url" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/structural.rnc">
@@ -541,24 +442,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parameter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12200">
-          <caret line="488" column="7" selection-start-line="488" selection-start-column="7" selection-end-line="488" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dayplan.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detector.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="34" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -583,27 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conflict.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="44" lean-forward="true" selection-end-line="60" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/passageway.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/split.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
@@ -611,44 +477,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="112" column="75" lean-forward="true" selection-start-line="112" selection-start-column="75" selection-end-line="112" selection-end-column="75" />
-          <folding>
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/operation_log.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/follow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="17" selection-start-line="1" selection-end-line="13" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -666,12 +498,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/detector.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="49" lean-forward="true" selection-end-line="90" selection-end-column="7" />
+          <folding>
+            <element signature="n#td#2;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#td#2;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="11" column="32" lean-forward="true" selection-end-line="55" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parameter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6158">
+          <caret line="488" column="7" selection-start-line="488" selection-start-column="7" selection-end-line="488" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/passageway.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conflict.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="56" lean-forward="true" selection-end-line="60" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/phase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="35" column="39" lean-forward="true" selection-end-line="134" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yearplan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
+        <state relative-caret-position="445">
+          <caret line="144" column="61" lean-forward="true" selection-start-line="144" selection-start-column="61" selection-end-line="144" selection-end-column="61" />
           <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
@@ -721,10 +606,128 @@
             <element signature="n#style#0;n#td#48;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#49;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#50;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#51;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#52;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="109" column="32" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#6;n#ul#0;n#nav#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#12;n#ul#0;n#nav#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constraint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/earlyend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/greeninterval.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latestart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phaselamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phaseparameter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/programme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statephase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transition.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/urgent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/follow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
         </state>
       </provider>
     </entry>

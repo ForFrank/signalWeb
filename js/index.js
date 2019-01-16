@@ -75,6 +75,58 @@ $(function() {
                 pathn = "parameter.html";
                 i = 12;
                 break;
+            case "#lamp":
+                pathn = "lamp.html";
+                i = 13;
+                break;
+            case "#phaselamp":
+                pathn = "phaselamp.html";
+                i = 14;
+                break;
+            case "#transition":
+                pathn = "transition.html";
+                i = 15;
+                break;
+            case "#phaseparameter":
+                pathn = "phaseparameter.html";
+                i = 16;
+                break;
+            case "#requirement":
+                pathn = "requirement.html";
+                i = 17;
+                break;
+            case "#statephase":
+                pathn = "statephase.html";
+                i = 18;
+                break;
+            case "#latestart":
+                pathn = "latestart.html";
+                i = 19;
+                break;
+            case "#earlyend":
+                pathn = "earlyend.html";
+                i = 20;
+                break;
+            case "#greeninterval":
+                pathn = "greeninterval.html";
+                i = 21;
+                break;
+            case "#urgent":
+                pathn = "urgent.html";
+                i = 22;
+                break;
+            case "#first":
+                pathn = "first.html";
+                i = 23;
+                break;
+            case "#programme":
+                pathn = "programme.html";
+                i = 24;
+                break;
+            case "#constraint":
+                pathn = "constraint.html";
+                i = 25;
+                break;
             default:
                 pathn = "state.html";
                 i = 0;
