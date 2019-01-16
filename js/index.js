@@ -12,7 +12,6 @@ function autoheight(){
     document.getElementById("main-content").style.height= winHeight +"px";
 }
 window.onresize=autoheight; //浏览器窗口发生变化时同时变化DIV高度
-
 $(function() {
     $(".nav").on("click", "li", function() {
         var sId = $(this).data("id"); //获取data-id的值

@@ -21,7 +21,7 @@
         var htmlstr=" ";
         for(i=1;i<=rows;i++){
             htmlstr+="<tr><td rowspan='2'>"+i+"</td>" +
-                "</td><td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
+                "<td>1</td><td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
                 "<td style='background: #9999FF'>4</td><td style='background: #9999FF'>5</td><td style='background: #9999FF'>6</td>" +
                 "<td style='background: #9999FF'>7</td><td style='background: #9999FF'>8</td><td style='background: #9999FF'>9</td>" +
                 "<td style='background: #9999FF'>10</td><td style='background: #9999FF'>11</td><td style='background: #9999FF'>12</td>" +
@@ -37,11 +37,12 @@
                 "<td style='background: #CCFFCC'>28</td><td style='background: #CCFFCC'>29</td><td style='background: #CCFFCC'>30</td>" +
                 "<td style='background: #CCFFCC'>31</td><td style='background: #FFCC99'>1</td><td style='background: #FFCC99'>2</td>" +
                 "<td style='background: #FFCC99'>3</td><td style='background: #FFCC99'>4</td><td style='background: #FFCC99'>5</td>" +
-                "<td style='background: #FFCC99'>6</td><td style='background: #FFCC99'>7</td><td>1</td>" +
+                "<td style='background: #FFCC99'>6</td><td style='background: #FFCC99'>7</td>" +
                 "<td><input id="+i+" type='button' onclick=\"allCkb('test1')\" value='全选' style='width:35px;height:20px'></tr><tr>";
             if (i<10) {
                 i = "0" +i;
             }
+            htmlstr+="<td><input type='text' name="+"p"+i+" id="+"P"+i+" style='width:30px;height:20px'></td>";
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "0" +j;
@@ -49,7 +50,7 @@
                 htmlstr+="<td><input " +
                     "type='checkbox' name='test1' value="+"P"+i+j+"></td>";
             }
-            htmlstr+="<td><input type='text' name="+"p"+i+" id="+"P"+i+" style='width:30px;height:20px'></td><td><input id="+"revSelect"+i+" onclick=\"unAllCkb('test1')\" type='button' value='反选' style='width:35px;height:20px'></tr>";
+            htmlstr+="<td><input id="+"revSelect"+i+" onclick=\"unAllCkb('test1')\" type='button' value='反选' style='width:35px;height:20px'></tr>";
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
@@ -135,10 +136,10 @@
                 <thead>
                 <tr>
                     <th>No</th>
+                    <th>计划</th>
                     <th colspan="12">月份</th>
                     <th colspan="31">月日</th>
                     <th colspan="7">星期</th>
-                    <th>计划</th>
                     <th>选择</th>
                 </tr>
                 </thead>
