@@ -83,8 +83,8 @@ $(function() {
                 pathn = "phaselamp.html";
                 i = 14;
                 break;
-            case "#transition":
-                pathn = "transition.html";
+            case "#fault":
+                pathn = "fault.html";
                 i = 15;
                 break;
             case "#phaseparameter":
@@ -125,6 +125,10 @@ $(function() {
                 break;
             case "#constraint":
                 pathn = "constraint.html";
+                i = 25;
+                break;
+            case "#general":
+                pathn = "general.html";
                 i = 25;
                 break;
             default:

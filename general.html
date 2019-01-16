@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跟随相位</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reasyui.css">
+    <script src="js/libs/jquery-1.11.2.js"></script>
+</head>
+<body>
+<section class="container-fluid">
+    <form class="form-horizontal" id="form1" action="#">
+        <h2 class="legend">出厂信息</h2>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">制造厂商</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">设备版本</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">设备编号</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">生产日期</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </fieldset>
+        <h2 class="legend">IP</h2>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">本机地址</label>
+                <div>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">掩码</label>
+                <div>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">网关</label>
+                <div>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px">
+                </div>
+            </div>
+        </fieldset>
+        <h2 class="legend">中心</h2>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">中心地址</label>
+                <div>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px"><span>.</span>
+                    <input type="text" style="width: 40px">
+                    <span> 端口 </span><input type="text" style="width: 40px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">中心控制</label>
+                <div>
+                    <span>路口1 </span><input type="text" style="width: 40px">
+                    <span>路口2 </span><input type="text" style="width: 40px">
+                    <span>路口3 </span><input type="text" style="width: 40px">
+                    <span>路口4 </span><input type="text" style="width: 40px">
+                </div>
+            </div>
+        </fieldset>
+        <div class="main-submit" style="margin: 20px">
+            <button class="btn btn-frist btn-primary" type="button" onclick="mysubmit()">提交</button>
+            <button class="btn btn-frist btn-primary" type="button"  onclick="myrst()">重置</button>
+        </div>
+    </form>
+</section>
+</body>
+</html>

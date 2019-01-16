@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>相位基本参数</title>
+    <title>相位</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
     <script src="js/libs/jquery-1.11.2.js"></script>
@@ -20,14 +20,14 @@
                 if (j<10) {
                     j = "0" +j;
                 };
-                htmlstr+="<td class=\"col-sm-1\">\n" +
-                    "                            <select  id=\"d0101\" class=\"form-control\" >\n" +
-                    "                                <option value=\"default\">机动车</option>\n" +
-                    "                                <option value=\"manual\">行人</option>\n" +
-                    "                                <option value=\"manual\">跟随</option>\n" +
-                    "                            </select>\n" +
-                    "                        </td>";
-                htmlstr+="<td class='col-sm-1'><input class='form-control' type='text' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
+                htmlstr+="<td>" +
+                "           <select id=\"d0101\" class=\"form-control\" >\n" +
+                "           <option value=\"default\">机动车</option>\n" +
+                "           <option value=\"manual\">行人</option>\n" +
+                "           <option value=\"manual\">跟随</option>\n" +
+                "           </select>\n" +
+                "         </td>";
+                htmlstr+="<td ><input class='form-control' type='text' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
             }
             htmlstr+="</tr>";
         }
@@ -37,29 +37,29 @@
 <body>
 <section class="container-fluid">
     <form class="form-horizontal" id="form1" action="#">
-        <h2 class="legend">相位基本参数</h2>
+        <h2 class="legend">相位</h2>
         <fieldset>
             <div class="col-lg-12">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="col-sm-1">相位编号</th>
-                        <th class="col-sm-1">NS1</th>
-                        <th class="col-sm-1">NT1</th>
-                        <th class="col-sm-1">NS2</th>
-                        <th class="col-sm-1">NT2</th>
-                        <th class="col-sm-1">NS3</th>
-                        <th class="col-sm-1">NT3</th>
-                        <th class="col-sm-1">RS1</th>
-                        <th class="col-sm-1">RT1</th>
-                        <th class="col-sm-1">RS2</th>
-                        <th class="col-sm-1">RT2</th>
-                        <th class="col-sm-1">RS3</th>
-                        <th class="col-sm-1">RT3</th>
-                        <th class="col-sm-1">最小绿</th>
-                        <th class="col-sm-1">最大绿1</th>
-                        <th class="col-sm-1">最大绿2</th>
-                        <th class="col-sm-1">延长</th>
+                        <th >编号</th>
+                        <th >NS1</th>
+                        <th >NT1</th>
+                        <th >NS2</th>
+                        <th >NT2</th>
+                        <th >NS3</th>
+                        <th >NT3</th>
+                        <th >RS1</th>
+                        <th >RT1</th>
+                        <th >RS2</th>
+                        <th >RT2</th>
+                        <th >RS3</th>
+                        <th >RT3</th>
+                        <th >最小绿</th>
+                        <th >最大绿1</th>
+                        <th >最大绿2</th>
+                        <th >延长</th>
                     </tr>
                     </thead>
                     <tbody id="phase1"></tbody>
