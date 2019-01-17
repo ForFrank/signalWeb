@@ -8,8 +8,8 @@
     <script src="js/libs/jquery-1.11.2.js"></script>
     <script>
         //设置行，列
-        var cols=8; //11列
-        var rows=16; //16行
+        var cols=32; //11列
+        var rows=32; //16行
         var htmlstr="<tr>";
         for(i=1;i<=rows;i++){
             htmlstr+="<td class='col-sm-1'>"+i+"</td></td>";
@@ -20,7 +20,7 @@
                 if (j<10) {
                     j = "0" +j;
                 };
-                htmlstr+="<td class='col-sm-1'><input type='checkbox' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
+                htmlstr+="<td><input type='checkbox' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
             }
             htmlstr+="</tr>";
         }
@@ -37,14 +37,38 @@
                     <thead>
                     <tr>
                         <th class="col-sm-1">相位</th>
-                        <th class="col-sm-1">1</th>
-                        <th class="col-sm-1">2</th>
-                        <th class="col-sm-1">3</th>
-                        <th class="col-sm-1">4</th>
-                        <th class="col-sm-1">5</th>
-                        <th class="col-sm-1">6</th>
-                        <th class="col-sm-1">7</th>
-                        <th class="col-sm-1">8</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                        <th>19</th>
+                        <th>20</th>
+                        <th>21</th>
+                        <th>22</th>
+                        <th>23</th>
+                        <th>24</th>
+                        <th>25</th>
+                        <th>26</th>
+                        <th>27</th>
+                        <th>28</th>
+                        <th>29</th>
+                        <th>30</th>
+                        <th>31</th>
+                        <th>32</th>
                     </tr>
                     </thead>
                     <tbody id="phase1"></tbody>
