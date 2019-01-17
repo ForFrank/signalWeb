@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conflict.html" beforeDir="false" afterPath="$PROJECT_DIR$/conflict.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/reasyui.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/reasyui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/earlyend.html" beforeDir="false" afterPath="$PROJECT_DIR$/earlyend.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general.html" beforeDir="false" afterPath="$PROJECT_DIR$/general.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/greeninterval.html" beforeDir="false" afterPath="$PROJECT_DIR$/greeninterval.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latestart.html" beforeDir="false" afterPath="$PROJECT_DIR$/latestart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passageway.html" beforeDir="false" afterPath="$PROJECT_DIR$/passageway.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phaselamp.html" beforeDir="false" afterPath="$PROJECT_DIR$/phaselamp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phaseparameter.html" beforeDir="false" afterPath="$PROJECT_DIR$/phaseparameter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirement.html" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statephase.html" beforeDir="false" afterPath="$PROJECT_DIR$/statephase.html" afterDir="false" />
-    </list>
+    <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -89,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/general.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding>
                 <element signature="n#div#0;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
@@ -124,8 +111,8 @@
       <file leaf-file-name="reasyui.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/reasyui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="46" selection-start-line="46" selection-end-line="47" />
+            <state relative-caret-position="543">
+              <caret line="48" column="48" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="48" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -362,12 +349,12 @@
       <workItem from="1547510976243" duration="6807000" />
       <workItem from="1547517853384" duration="15369000" />
       <workItem from="1547602619367" duration="33372000" />
-      <workItem from="1547685289829" duration="3794000" />
+      <workItem from="1547685289829" duration="5352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307063000" />
+    <option name="totallyTimeSpent" value="308621000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -708,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/reasyui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="46" selection-start-line="46" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phase.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="658">
@@ -722,10 +702,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/reasyui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="48" column="48" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="48" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/general.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding>
             <element signature="n#div#0;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#fieldset#0;n#form#0;n#section#0;n#body#0;n#html#0;n#!!top" />
