@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/center.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/constraint.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detector.html" beforeDir="false" afterPath="$PROJECT_DIR$/detector.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/latestart.html" beforeDir="false" afterPath="$PROJECT_DIR$/latestart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programme.html" beforeDir="false" afterPath="$PROJECT_DIR$/programme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/split.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
-    </list>
+    <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -336,12 +326,12 @@
       <workItem from="1547602619367" duration="33372000" />
       <workItem from="1547685289829" duration="5352000" />
       <workItem from="1547725594733" duration="524000" />
-      <workItem from="1547772299717" duration="858000" />
+      <workItem from="1547772299717" duration="1200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310003000" />
+    <option name="totallyTimeSpent" value="310345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
