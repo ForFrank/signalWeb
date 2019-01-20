@@ -13,49 +13,40 @@
         padding: 0 12px 6px;
         list-style: none;
     }
-    .channel-left{
+    .channel-right{
+        width: 94.5%;
         border: 2px solid #ccc;
         float: left;
     }
     .channel td{
-        width: 50px;
-        height: 30px;
+        width: 5px;
+        height: 20px;
         border-top:5px solid white;
         border-bottom:5px solid white;
     }
-    .channel-min, .channel-right{
-        height: 490px;
+    .channel th{
+        border-left:1px solid #dcdcdc;
+        border-right:1px solid #dcdcdc;
+        background: #D5D5D5;
+    }
+    .channel-left{
+        width: 3.8%;
         float: left;
-        margin-left:5px;
         border: 2px solid #ccc;
         background: #ccc;
     }
-    .channel-min td{
-        height: 30px;
-        border-top:5px solid #ccc;
-        border-bottom:5px solid #ccc;
-    }
-    .channel-right-top td, .channel-right-center td{
-        height: 20px;
-        width: 28px;
-        border: 2px solid black;
-    }
-    .channel-right-bottom td{
-        height: 20px;
-        width: 33px;
-        border: 2px solid black;
-    }
-    .channel-right-top,.channel-right-bottom{
-        border: 1px solid #707070;
-    }
-   .channel-right-top-bottom, .channel-right-bottom{
-        margin-top: 5px;
+    .channel-left td{
+        width: 25px;
+        height: 12px;
+        font-size: 12px;
+        border-top:3px solid #ccc;
+        border-bottom:3px solid #ccc;
     }
 </style>
 <script>
     //设置行，列
-    var cols=13; //11列
-    var rows=16; //16行
+    var cols=180; //11列
+    var rows=32; //16行
     var htmlstr="<tr>";
     for(var i=0;i<rows;i++){
         if (i<10) {
@@ -63,7 +54,11 @@
         }
         for(var j=0;j<cols;j++){
             if (j<10) {
-                j = "0" +j;
+                j = "00" +j;
+            }  else if (j>=10 && j<100) {
+                j = "0" + j;
+            }  else {
+                j = j;
             }
             htmlstr+="<td id="+"p"+i+j+"></td>";
         }
@@ -71,26 +66,29 @@
     }
     document.getElementById('phase1').innerHTML = htmlstr;
     function fillDatas(rect_data) {
-        $.each(rect_data[0],function(key,item){
+        $.each(rect_data,function(key,item){
             switch (item)
             {
                 case 0:
-                    document.getElementById(key).style.background = "#f00";
+                    document.getElementById(key).style.background = "black";
                     break;
                 case 1:
-                    document.getElementById(key).style.background = "#0f0";
+                    document.getElementById(key).style.background = "red";
                     // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
                     break;
                 case 2:
                     document.getElementById(key).style.background = "#ff0";
+                    break;
+                case 3:
+                    document.getElementById(key).style.background = "#0f0";
                     break;
             }
         })
     }
     var fun = function() {
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test1",
+            type: "POST",
+            url: "/get_lamp",
             contentType: 'application/json',
             dataType: "json",
             success:function(data){
@@ -109,7 +107,7 @@
         <h2 class="legend">信号机状态</h2>
         <fieldset>
             <ul class="channel-top">
-                <li><input type="button" value="GPS对时"></li>
+                <li>GPS对时</li>
                 <li><input type="button" value="中心对时"></li>
                 <li><input type="button" value="NC"></li>
                 <li><input type="button" value="方案同步"></li>
@@ -121,124 +119,329 @@
         </fieldset>
     </form>
     <form class="form-horizontal">
-        <h2 class="legend">相位状态</h2>
         <fieldset>
-            <div class="channel-left">
-                <table class="channel">
-                    <tbody id="phase1"></tbody>
-                </table>
-            </div>
-            <div class="channel-min">
-                <table>
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1">路口号</th>
+                            <th class="col-sm-1">控制模式</th>
+                            <th class="col-sm-1">时间表号</th>
+                            <th class="col-sm-1">方案号</th>
+                            <th class="col-sm-1">周期</th>
+                            <th class="col-sm-1">运行时长</th>
+                            <th class="col-sm-1">当前阶段</th>
+                            <th class="col-sm-1">协调状态</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr>
-                            <td>A:南</td>
+                            <td>1</td>
+                            <td>本地协调控制</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>60</td>
+                            <td>30</td>
+                            <td>2</td>
+                            <td>1</td>
                         </tr>
                         <tr>
-                            <td>B:北</td>
+                            <td>1</td>
+                            <td>其他</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
-                            <td>C:东</td>
+                            <td>1</td>
+                            <td>其他</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>其他</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </fieldset>
+    </form>
+    <form class="form-horizontal">
+        <h2 class="legend">阶段状态监视</h2>
+        <fieldset>
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th>阶段</th>
+                        <th>01</th>
+                        <th>02</th>
+                        <th>03</th>
+                        <th>04</th>
+                        <th>05</th>
+                        <th>06</th>
+                        <th>07</th>
+                        <th>08</th>
+                        <th>09</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>时间</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                        <tr>
+                        <td>请求</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+    <form class="form-horizontal">
+        <h2 class="legend">相位状态监视</h2>
+        <fieldset>
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>阶段</th>
+                        <th>01</th>
+                        <th>02</th>
+                        <th>03</th>
+                        <th>04</th>
+                        <th>05</th>
+                        <th>06</th>
+                        <th>07</th>
+                        <th>08</th>
+                        <th>09</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>时间</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>请求</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+    <form class="form-horizontal">
+        <h2 class="legend">相位状态</h2>
+        <fieldset>
+            <div class="channel-left">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>灯组</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="channel-right">
-                <div class="channel-right-top">
-                    <div class="channel-right-top-top">
-                        <h5>路口状态</h5>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td></td>
-                                <td>模式</td>
-                                <td>阶段</td>
-                                <td>方案</td>
-                                <td>协调</td>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="channel-right-top-bottom">
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td>开始</td>
-                                <td>阶段</td>
-                                <td>时长</td>
-                                <td>间隔</td>
-                                <td>周期</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div style="height: 60px;"></div>
-                    </div>
-                </div>
-                <div class="channel-right-bottom">
-                    <h5>检测器</h5>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>路口</td>
-                            <td>状态</td>
-                            <td>流量</td>
-                            <td>占有率</td>
-                        </tr>
-                        <tr>
-                            <td>0</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="channel">
+                    <tr>
+                        <th colspan="30">30s</th>
+                        <th colspan="30">60s</th>
+                        <th colspan="30">90s</th>
+                        <th colspan="30">120s</th>
+                        <th colspan="30">150s</th>
+                        <th colspan="30">180s</th>
+                    </tr>
+                    <tbody id="phase1"></tbody>
+                </table>
             </div>
         </fieldset>
     </form>
