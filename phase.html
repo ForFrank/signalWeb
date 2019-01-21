@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
     <script src="js/libs/jquery-1.11.2.js"></script>
-    <!--<script src="js/phase.js"></script><-->
     <script>
         //设置行，列
         var cols=11; //11列
@@ -16,11 +15,11 @@
             htmlstr+="<td class='col-sm-1'>"+i+"</td>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "0" +j;
-                };
+                }
                 htmlstr+="<td ><input class='form-control' type='text' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
             }
             htmlstr+="</tr>";
@@ -29,7 +28,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/get_lamp",
+            url: "/test",
             contentType: 'application/json',
             dataType: "json",
             success:function(data){
@@ -80,7 +79,6 @@
                     dataType: "json",
                     success:function(data){
                         console.log(data);
-                        // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
                         $.each(data,function(key,item){
                             $("#"+key).val(item); //返回结果为null时，转换成空字符串
                         })

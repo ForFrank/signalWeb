@@ -15,11 +15,11 @@
             htmlstr+="<td class='col-sm-1'>"+i+"</td><td><input type='text' class='form-control'></td>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "0" +j;
-                };
+                }
                 htmlstr+="<td class='col-sm-1'><input type='checkbox' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
             }
             htmlstr+="</tr>";

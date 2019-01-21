@@ -20,6 +20,75 @@
             box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
         }
     </style>
+    <script>
+        $.ajax({
+            type: "POST",
+            url: "/general",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                $.each(data,function(key,item){
+                    $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                })
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+        function mysubmit()
+        {
+            if(window.confirm("确定要提交吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/general",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
+                    success:function(data){
+                        console.log(data);
+                        $.each(data,function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error: function(data, type, err){
+                        console.log("ajax错误类型："+type);
+                        console.log(err);
+                    }
+                });
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/general",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        $.each(data,function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        };
+    </script>
 </head>
 <body>
 <section class="container-fluid">
@@ -29,25 +98,41 @@
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">制造厂商</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="t01001" name="t01001">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">设备版本</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="t01002" name="t01002">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">设备编号</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="t01003" name="t01003">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">生产日期</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control">
+                    <input type="text" style="width: 40px" id="p07001" name="p07001"><span>年</span>
+                    <input type="text" style="width: 40px" id="p07002" name="p07002"><span>月</span>
+                    <input type="text" style="width: 40px" id="p07003" name="p07003"><span>日</span>
+                    <input type="text" style="width: 40px" id="p07004" name="p07004"><span>时</span>
+                    <input type="text" style="width: 40px" id="p07005" name="p07005"><span>分</span>
+                    <input type="text" style="width: 40px" id="p07006" name="p07006"><span>秒</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-md-3 control-label">制造日期</label>
+                <div class="col-sm-4">
+                    <input type="text" style="width: 40px" id="p08001" name="p08001"><span>年</span>
+                    <input type="text" style="width: 40px" id="p08002" name="p08002"><span>月</span>
+                    <input type="text" style="width: 40px" id="p08003" name="p08003"><span>日</span>
+                    <input type="text" style="width: 40px" id="p08004" name="p08004"><span>时</span>
+                    <input type="text" style="width: 40px" id="p08005" name="p08005"><span>分</span>
+                    <input type="text" style="width: 40px" id="p08006" name="p08006"><span>秒</span>
                 </div>
             </div>
         </fieldset>
@@ -56,50 +141,51 @@
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">本机地址</label>
                 <div>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px">
+                    <input type="text" style="width: 40px" id="p02001" name="p02001"><span>.</span>
+                    <input type="text" style="width: 40px" id="p02002" name="p02002"><span>.</span>
+                    <input type="text" style="width: 40px" id="p02003" name="p02003"><span>.</span>
+                    <input type="text" style="width: 40px" id="p02004" name="p02004">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">掩码</label>
                 <div>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px">
+                    <input type="text" style="width: 40px" id="p03001" name="p03001"><span>.</span>
+                    <input type="text" style="width: 40px" id="p03002" name="p03002"><span>.</span>
+                    <input type="text" style="width: 40px" id="p03003" name="p03003"><span>.</span>
+                    <input type="text" style="width: 40px" id="p03004" name="p03004">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">网关</label>
                 <div>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px">
+                    <input type="text" style="width: 40px" id="p04001" name="p04001"><span>.</span>
+                    <input type="text" style="width: 40px" id="p04002" name="p04002"><span>.</span>
+                    <input type="text" style="width: 40px" id="p04003" name="p04003"><span>.</span>
+                    <input type="text" style="width: 40px" id="p04004" name="p04004">
                 </div>
             </div>
         </fieldset>
         <h2 class="legend">中心</h2>
+
         <fieldset>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">中心地址</label>
                 <div>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px"><span>.</span>
-                    <input type="text" style="width: 40px">
-                    <span> 端口 </span><input type="text" style="width: 40px">
+                    <input type="text" style="width: 40px" id="p05001" name="p05001"><span>.</span>
+                    <input type="text" style="width: 40px" id="p05002" name="p05002"><span>.</span>
+                    <input type="text" style="width: 40px" id="p05003" name="p05003"><span>.</span>
+                    <input type="text" style="width: 40px" id="p05004" name="p05004">
+                    <span> 端口 </span><input type="text" style="width: 40px" id="p05005" name="p05005">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-md-3 control-label">中心控制</label>
                 <div>
-                    <span>路口1 </span><input type="text" style="width: 40px">
-                    <span>路口2 </span><input type="text" style="width: 40px">
-                    <span>路口3 </span><input type="text" style="width: 40px">
-                    <span>路口4 </span><input type="text" style="width: 40px">
+                    <span>路口1 </span><input type="text" style="width: 40px" id="p06001" name="p06001">
+                    <span>路口2 </span><input type="text" style="width: 40px" id="p06002" name="p06002">
+                    <span>路口3 </span><input type="text" style="width: 40px" id="p06003" name="p06003">
+                    <span>路口4 </span><input type="text" style="width: 40px" id="p06004" name="p06004">
                 </div>
             </div>
         </fieldset>

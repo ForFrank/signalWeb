@@ -5,10 +5,122 @@
     <title></title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <script>
+        //设置行，列
+        var cols=3; //11列
+        var rows=8; //16行
+        var htmlstr="<tr>";
+        var q = 0;
+        for(i=1;i<=rows;i++){
+            if (i<10) {
+                i = "0" +i;
+
+            };
+            htmlstr+="<td class='col-sm-1'>"+i+"</td><td class=\"col-sm-1\" >" +
+                "                            <select name="+"p"+i+"001"+" id="+"p"+i+"001"+" class=\"form-control\" >" +
+                "                                <option value=\"0\">线圈</option>\n" +
+                "                                <option value=\"1\">地磁</option>\n" +
+                "                                <option value=\"2\">超声波检测器</option>\n" +
+                "                                <option value=\"3\">微波检测器</option>\n" +
+                "                                <option value=\"4\">红外检测器</option>\n" +
+                "                            </select>\n" +
+                "                        </td>";
+            for(j=1;j<=cols;j++){
+                q = j +1;
+                if (q<10) {
+                    q = "00" +q;
+                }  else if (q>=10 && q<100) {
+                    q = "0" + q;
+                }  else {
+                    q = q;
+                }
+                htmlstr+="<td class='col-sm-1'><input type='text' name="+"p"+i+q+" id="+"p"+i+q+"></td>";
+            }
+            htmlstr+="</tr>";
+        }
+        document.getElementById('phase1').innerHTML = htmlstr;
+        $.ajax({
+            url:"/detector",
+            type:"POST",
+            dataType:"json",
+            success: function(data){
+                console.log(data);
+                fillDatas(data);
+            }
+        });
+        function fillDatas(rect_data) {
+            $.each(rect_data[0],function(key,item){
+                $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
+                $("#"+key+" option[value='"+item+"']").attr("selected","selected");
+            });
+            $.each(rect_data[2],function(key,item){
+                $("#"+key).val(item); //返回结果为null时，转换成空字符串
+            });
+        }
+        function mysubmit()
+        {
+            if(window.confirm("确定要提交吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/detector",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
+                    success:function(data){
+                        console.log(data);
+                        $.each(data[1],function(key,item){
+                            $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
+                            $("#"+key+" option[value='"+item+"']").attr("selected","selected");
+                        });
+                        $.each(data[2],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        });
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/detector",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        $.each(data[1],function(key,item){
+                            $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
+                            $("#"+key+" option[value='"+item+"']").attr("selected","selected");
+                        });
+                        $.each(data[2],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        });
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 <section class="container-fluid">
-    <form class="form-horizontal" id="attachedDevices">
+    <form class="form-horizontal" id="form1" action="#">
         <h2 class="legend">检测器</h2>
         <fieldset>
             <div class="col-xs-12">
@@ -22,77 +134,12 @@
                         <th class="col-sm-1">位置</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td class="col-sm-1">1</td>
-                        <td class="col-sm-1">
-                            <select  id="d0101" class="form-control" >
-                                <option value="default">线圈</option>
-                                <option value="manual">地磁</option>
-                                <option value="manual">超声波检测器</option>
-                                <option value="manual">微波检测器</option>
-                                <option value="manual">红外检测器</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0102" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0103" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0104" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">2</td>
-                        <td class="col-sm-1">
-                            <select  id="d0201" class="form-control" >
-                                <option value="default">线圈</option>
-                                <option value="manual">地磁</option>
-                                <option value="manual">超声波检测器</option>
-                                <option value="manual">微波检测器</option>
-                                <option value="manual">红外检测器</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0202" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0203" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0204" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-1">3</td>
-                        <td class="col-sm-1">
-                            <select  id="d0301" class="form-control" >
-                                <option value="default">线圈</option>
-                                <option value="manual">地磁</option>
-                                <option value="manual">超声波检测器</option>
-                                <option value="manual">微波检测器</option>
-                                <option value="manual">红外检测器</option>
-                            </select>
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0302" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0303" type="text" class="form-control">
-                        </td>
-                        <td class="col-sm-1">
-                            <input id="d0304" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    </tbody>
+                    <tbody id="phase1"></tbody>
                 </table>
             </div>
             <div class="main-submit">
-                <button class="btn btn-frist btn-primary">提交</button>
-                <button class="btn">&lt&lt</button>
-                <button class="btn">&gt&gt</button>
+                <button class="btn btn-frist btn-primary" type="button" onclick="mysubmit()">提交</button>
+                <button class="btn btn-frist btn-primary" type="button"  onclick="myrst()">重置</button>
             </div>
         </fieldset>
     </form>
