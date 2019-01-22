@@ -15,7 +15,7 @@
             htmlstr+="<td>"+i+"</td></td>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "00" +j;
@@ -30,11 +30,11 @@
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test5",
+            type: "POST",
+            url: "/lampInPhase1",
             success:function(data){
                 console.log(data);
-                $.each(data[4], function(key,item){
+                $.each(data.lampInPhase1[0], function(key,item){
                     // $("input[name='test1'][value='"+item+"']").attr("checked","checked");
                     $("#"+key).val(item).attr("checked","checked");
                 });
@@ -50,13 +50,13 @@
                 // var test1 = $("input[name='test1']:checked").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/detector",
+                    url: "/lampInPhase1",
                     contentType: 'application/json',
                     dataType: "json",
                     data: $('#form1').serialize(),
                     success:function(data){
                         console.log(data);
-                        $.each(data[1],function(key,item){
+                        $.each(data.lampInPhase1[0],function(key,item){
                             $("#"+key).val(item).attr("checked","checked");
                         });
                     },
@@ -75,12 +75,12 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/detector",
+                    url: "/lampInPhase1",
                     contentType: 'application/json',
                     dataType: "json",
                     success:function(data){
                         console.log(data);
-                        $.each(data[1],function(key,item){
+                        $.each(data.lampInPhase1[0],function(key,item){
                             $("#"+key).val(item).attr("checked","checked");
                         });
                     },

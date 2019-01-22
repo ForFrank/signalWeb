@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>相位需求</title>
+    <title>紧急</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/reasyui.css">
     <script src="js/libs/jquery-1.11.2.js"></script>
+    <!--<script src="js/phase.js"></script><-->
     <script>
         //设置行，列
-        var cols=32; //11列
-        var rows=32; //16行
+        var cols=4; //11列
+        var rows=8; //16行
         var htmlstr="<tr>";
         for(i=1;i<=rows;i++){
-            htmlstr+="<td>"+i+"</td></td>";
+            htmlstr+="<td class='col-sm-1'>"+i+"</td>";
             if (i<10) {
                 i = "0" +i;
             }
@@ -24,20 +25,23 @@
                 }  else {
                     j = j;
                 }
-                htmlstr+="<td><input type='checkbox' name="+"p"+i+j+" id="+"p"+i+j+" value="+"p"+i+j+"></td>";
+                htmlstr+="<td class='col-sm-1'><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
             }
             htmlstr+="</tr>";
         }
         document.getElementById('phase1').innerHTML = htmlstr;
+
         $.ajax({
             type: "POST",
-            url: "demand1",
+            url: "/preempt1",
+            contentType: 'application/json',
+            dataType: "json",
             success:function(data){
                 console.log(data);
-                $.each(data.demand1[0], function(key,item){
-                    // $("input[name='test1'][value='"+item+"']").attr("checked","checked");
-                    $("#"+key).val(item).attr("checked","checked");
-                });
+                // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                $.each(data.preempt1[0],function(key,item){
+                    $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                })
             },
             error:function(){
                 alert("加载资源失败");
@@ -47,23 +51,23 @@
         {
             if(window.confirm("确定要提交吗？"))
             {
-                // var test1 = $("input[name='test1']:checked").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/demand1",
+                    url: "/preempt1",
                     contentType: 'application/json',
                     dataType: "json",
                     data: $('#form1').serialize(),
                     success:function(data){
                         console.log(data);
-                        $.each(data.demand1[0],function(key,item){
-                            $("#"+key).val(item).attr("checked","checked");
-                        });
+                        $.each(data.preempt1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
                     },
-                    error:function(){
-                        alert("加载资源失败");
+                    error: function(data, type, err){
+                        console.log("ajax错误类型："+type);
+                        console.log(err);
                     }
-                })
+                });
             }
             else
             {
@@ -75,14 +79,15 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/demand1",
+                    url: "/preempt1",
                     contentType: 'application/json',
                     dataType: "json",
                     success:function(data){
                         console.log(data);
-                        $.each(data.demand1[0],function(key,item){
-                            $("#"+key).val(item).attr("checked","checked");
-                        });
+                        // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                        $.each(data.preempt1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
                     },
                     error:function(){
                         alert("加载资源失败");
@@ -93,51 +98,24 @@
             {
                 return false;
             }
-        }
+        };
+
     </script>
 </head>
 <body>
 <section class="container-fluid">
     <form class="form-horizontal" id="form1" action="#">
-        <h2 class="legend">相位需求</h2>
+        <h2 class="legend">优先</h2>
         <fieldset>
             <div class="col-lg-12">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>检测相位</th>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                        <th>6</th>
-                        <th>7</th>
-                        <th>8</th>
-                        <th>9</th>
-                        <th>10</th>
-                        <th>11</th>
-                        <th>12</th>
-                        <th>13</th>
-                        <th>14</th>
-                        <th>15</th>
-                        <th>16</th>
-                        <th>17</th>
-                        <th>18</th>
-                        <th>19</th>
-                        <th>20</th>
-                        <th>21</th>
-                        <th>22</th>
-                        <th>23</th>
-                        <th>24</th>
-                        <th>25</th>
-                        <th>26</th>
-                        <th>27</th>
-                        <th>28</th>
-                        <th>29</th>
-                        <th>30</th>
-                        <th>31</th>
-                        <th>32</th>
+                        <th class="col-sm-1">编号</th>
+                        <th class="col-sm-1">优先阶段</th>
+                        <th class="col-sm-1">优先级别</th>
+                        <th class="col-sm-1">优先禁止</th>
+                        <th class="col-sm-1">优先输入</th>
                     </tr>
                     </thead>
                     <tbody id="phase1"></tbody>

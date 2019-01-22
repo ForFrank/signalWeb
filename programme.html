@@ -48,6 +48,76 @@
         htmlstr+="</tbody></table>";
         document.getElementById('phase1').innerHTML = htmlstr;
     </script>-->
+<script>
+        $.ajax({
+            type: "POST",
+            url: "/plan1",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                $.each(data.plan1[0],function(key,item){
+                    $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                })
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+        function mysubmit()
+        {
+            if(window.confirm("确定要提交吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/plan1",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
+                    success:function(data){
+                        console.log(data);
+                        $.each(data.plan1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error: function(data, type, err){
+                        console.log("ajax错误类型："+type);
+                        console.log(err);
+                    }
+                });
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/plan1",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
+                        $.each(data.plan1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        };
+    </script>
 </head>
 <body>
 <section class="container-fluid">
@@ -58,31 +128,31 @@
                 <table class='table'>
                     <thead><tr>
                        <th class="col-sm-1">方案:1</th>
-                       <th colspan="4">路口号:<input type="text" style="width: 40px" id="p05001" name="p05001"></th>
-                       <th colspan="4">周期:<input type="text" style="width: 40px" id="p05002" name="p05002"></th>
-                       <th colspan="4">协调号:<input type="text" style="width: 40px" id="p05003" name="p05003"></th>
-                       <th colspan="4">相位差:<input type="text" style="width: 40px" id="p05004" name="p05004"></th>
+                       <th colspan="4">路口号:<input type="text" style="width: 40px" id="p01001" name="p01001"></th>
+                       <th colspan="4">周期:<input type="text" style="width: 40px" id="p01002" name="p041002"></th>
+                       <th colspan="4">协调号:<input type="text" style="width: 40px" id="p01003" name="p01003"></th>
+                       <th colspan="4">相位差:<input type="text" style="width: 40px" id="p01004" name="p01004"></th>
                        </tr>
                      </thead>
                     <tbody>
                     <tr>
                         <td class="col-sm-1">编号</td>
-                        <td ><input class='form-control' type="text" id="p01001" name="p01001"></td>
-                        <td ><input class='form-control' type="text" id="p01002" name="p01002"></td>
-                        <td ><input class='form-control' type="text" id="p01003" name="p01003"></td>
-                        <td ><input class='form-control' type="text" id="p01004" name="p01004"></td>
-                        <td ><input class='form-control' type="text" id="p01005" name="p01005"></td>
-                        <td ><input class='form-control' type="text" id="p01006" name="p01006"></td>
-                        <td ><input class='form-control' type="text" id="p01007" name="p01007"></td>
-                        <td ><input class='form-control' type="text" id="p01008" name="p01008"></td>
-                        <td ><input class='form-control' type="text" id="p01009" name="p01009"></td>
-                        <td ><input class='form-control' type="text" id="p01010" name="p01010"></td>
-                        <td ><input class='form-control' type="text" id="p01011" name="p01011"></td>
-                        <td ><input class='form-control' type="text" id="p01012" name="p01012"></td>
-                        <td ><input class='form-control' type="text" id="p01013" name="p01013"></td>
-                        <td ><input class='form-control' type="text" id="p01014" name="p01014"></td>
-                        <td ><input class='form-control' type="text" id="p01015" name="p01015"></td>
-                        <td ><input class='form-control' type="text" id="p01016" name="p01016"></td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
                     </tr>
                     <tr>
                         <td class="col-sm-1">阶段链</td>
@@ -123,7 +193,7 @@
                         <td ><input class='form-control' type="text" id="p03016" name="p03016"></td>
                     </tr>
                     <tr>
-                        <td class="col-sm-1">时长链</td>
+                        <td class="col-sm-1">模式链</td>
                         <td ><input class='form-control' type="text" id="p04001" name="p04001"></td>
                         <td ><input class='form-control' type="text" id="p04002" name="p04002"></td>
                         <td ><input class='form-control' type="text" id="p04003" name="p04003"></td>
@@ -139,7 +209,7 @@
                         <td ><input class='form-control' type="text" id="p04013" name="p04013"></td>
                         <td ><input class='form-control' type="text" id="p04014" name="p04014"></td>
                         <td ><input class='form-control' type="text" id="p04015" name="p04015"></td>
-                        <td ><input class='form-control' type="text" id="p04016" name="p04016"></td>
+                        <td ><input class='form-control' type="text" id="p04016" name="p04016"></td>4
                     </tr>
                     </tbody>
                 </table>
@@ -148,15 +218,34 @@
                 <table class='table'>
                     <thead><tr>
                         <th class="col-sm-1">方案:2</th>
-                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p010001" name="p10001"></th>
-                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p10002" name="p10002"></th>
-                            <th colspan="4">协调号:<input type="text" style="width: 40px" id="p10003" name="p10003"></th>
-                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p10004" name="p10004"></th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p05001" name="p05001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p05002" name="p05002"></th>
+                            <th colspan="4">协调号:<input type="text" style="width: 40px" id="p05003" name="p05003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p05004" name="p05004"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
                         <td ><input class='form-control' type="text" id="p06001" name="p06001"></td>
                         <td ><input class='form-control' type="text" id="p06002" name="p06002"></td>
                         <td ><input class='form-control' type="text" id="p06003" name="p06003"></td>
@@ -175,7 +264,7 @@
                         <td ><input class='form-control' type="text" id="p06016" name="p06016"></td>
                     </tr>
                     <tr>
-                        <td class="col-sm-1">阶段链</td>
+                        <td class="col-sm-1">时长链</td>
                         <td ><input class='form-control' type="text" id="p07001" name="p07001"></td>
                         <td ><input class='form-control' type="text" id="p07002" name="p07002"></td>
                         <td ><input class='form-control' type="text" id="p07003" name="p07003"></td>
@@ -194,7 +283,7 @@
                         <td ><input class='form-control' type="text" id="p07016" name="p07016"></td>
                     </tr>
                     <tr>
-                        <td class="col-sm-1">时长链</td>
+                        <td class="col-sm-1">模式链</td>
                         <td ><input class='form-control' type="text" id="p08001" name="p08001"></td>
                         <td ><input class='form-control' type="text" id="p08002" name="p08002"></td>
                         <td ><input class='form-control' type="text" id="p08003" name="p08003"></td>
@@ -212,24 +301,545 @@
                         <td ><input class='form-control' type="text" id="p08015" name="p08015"></td>
                         <td ><input class='form-control' type="text" id="p08016" name="p08016"></td>
                     </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:3</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p09001" name="p09001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p09002" name="p09002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p09003" name="p09003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p09004" name="p09004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p10001" name="p10001"></td>
+                        <td ><input class='form-control' type="text" id="p10002" name="p10002"></td>
+                        <td ><input class='form-control' type="text" id="p10003" name="p10003"></td>
+                        <td ><input class='form-control' type="text" id="p10004" name="p10004"></td>
+                        <td ><input class='form-control' type="text" id="p10005" name="p10005"></td>
+                        <td ><input class='form-control' type="text" id="p10006" name="p10006"></td>
+                        <td ><input class='form-control' type="text" id="p10007" name="p10007"></td>
+                        <td ><input class='form-control' type="text" id="p10008" name="p10008"></td>
+                        <td ><input class='form-control' type="text" id="p10009" name="p10009"></td>
+                        <td ><input class='form-control' type="text" id="p10010" name="p10010"></td>
+                        <td ><input class='form-control' type="text" id="p10011" name="p10011"></td>
+                        <td ><input class='form-control' type="text" id="p10012" name="p10012"></td>
+                        <td ><input class='form-control' type="text" id="p10013" name="p10013"></td>
+                        <td ><input class='form-control' type="text" id="p10014" name="p10014"></td>
+                        <td ><input class='form-control' type="text" id="p10015" name="p10015"></td>
+                        <td ><input class='form-control' type="text" id="p10016" name="p10016"></td>
+                    </tr>
                     <tr>
                         <td class="col-sm-1">时长链</td>
-                        <td ><input class='form-control' type="text" id="p09001" name="p09001"></td>
-                        <td ><input class='form-control' type="text" id="p09002" name="p09002"></td>
-                        <td ><input class='form-control' type="text" id="p09003" name="p09003"></td>
-                        <td ><input class='form-control' type="text" id="p09004" name="p09004"></td>
-                        <td ><input class='form-control' type="text" id="p09005" name="p09005"></td>
-                        <td ><input class='form-control' type="text" id="p09006" name="p09006"></td>
-                        <td ><input class='form-control' type="text" id="p09007" name="p09007"></td>
-                        <td ><input class='form-control' type="text" id="p09008" name="p09008"></td>
-                        <td ><input class='form-control' type="text" id="p09009" name="p09009"></td>
-                        <td ><input class='form-control' type="text" id="p09010" name="p09010"></td>
-                        <td ><input class='form-control' type="text" id="p09011" name="p09011"></td>
-                        <td ><input class='form-control' type="text" id="p09012" name="p09012"></td>
-                        <td ><input class='form-control' type="text" id="p09013" name="p09013"></td>
-                        <td ><input class='form-control' type="text" id="p09014" name="p09014"></td>
-                        <td ><input class='form-control' type="text" id="p09015" name="p09015"></td>
-                        <td ><input class='form-control' type="text" id="p09016" name="p09016"></td>
+                        <td ><input class='form-control' type="text" id="p11001" name="p11001"></td>
+                        <td ><input class='form-control' type="text" id="p11002" name="p11002"></td>
+                        <td ><input class='form-control' type="text" id="p11003" name="p11003"></td>
+                        <td ><input class='form-control' type="text" id="p11004" name="p11004"></td>
+                        <td ><input class='form-control' type="text" id="p11005" name="p11005"></td>
+                        <td ><input class='form-control' type="text" id="p11006" name="p11006"></td>
+                        <td ><input class='form-control' type="text" id="p11007" name="p11007"></td>
+                        <td ><input class='form-control' type="text" id="p11008" name="p11008"></td>
+                        <td ><input class='form-control' type="text" id="p11009" name="p11009"></td>
+                        <td ><input class='form-control' type="text" id="p11010" name="p11010"></td>
+                        <td ><input class='form-control' type="text" id="p11011" name="p11011"></td>
+                        <td ><input class='form-control' type="text" id="p11012" name="p11012"></td>
+                        <td ><input class='form-control' type="text" id="p11013" name="p11013"></td>
+                        <td ><input class='form-control' type="text" id="p11014" name="p11014"></td>
+                        <td ><input class='form-control' type="text" id="p11015" name="p11015"></td>
+                        <td ><input class='form-control' type="text" id="p11016" name="p11016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p12001" name="p12001"></td>
+                        <td ><input class='form-control' type="text" id="p12002" name="p12002"></td>
+                        <td ><input class='form-control' type="text" id="p12003" name="p12003"></td>
+                        <td ><input class='form-control' type="text" id="p12004" name="p12004"></td>
+                        <td ><input class='form-control' type="text" id="p12005" name="p12005"></td>
+                        <td ><input class='form-control' type="text" id="p12006" name="p12006"></td>
+                        <td ><input class='form-control' type="text" id="p12007" name="p12007"></td>
+                        <td ><input class='form-control' type="text" id="p12008" name="p12008"></td>
+                        <td ><input class='form-control' type="text" id="p12009" name="p12009"></td>
+                        <td ><input class='form-control' type="text" id="p12010" name="p12010"></td>
+                        <td ><input class='form-control' type="text" id="p12011" name="p12011"></td>
+                        <td ><input class='form-control' type="text" id="p12012" name="p12012"></td>
+                        <td ><input class='form-control' type="text" id="p12013" name="p12013"></td>
+                        <td ><input class='form-control' type="text" id="p12014" name="p12014"></td>
+                        <td ><input class='form-control' type="text" id="p12015" name="p12015"></td>
+                        <td ><input class='form-control' type="text" id="p12016" name="p12016"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:4</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p1301" name="p13001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p13002" name="p13002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p13003" name="p13003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p13004" name="p13004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p14001" name="p15001"></td>
+                        <td ><input class='form-control' type="text" id="p14002" name="p15002"></td>
+                        <td ><input class='form-control' type="text" id="p14003" name="p15003"></td>
+                        <td ><input class='form-control' type="text" id="p14004" name="p15004"></td>
+                        <td ><input class='form-control' type="text" id="p14005" name="p15005"></td>
+                        <td ><input class='form-control' type="text" id="p14006" name="p15006"></td>
+                        <td ><input class='form-control' type="text" id="p14007" name="p15007"></td>
+                        <td ><input class='form-control' type="text" id="p14008" name="p15008"></td>
+                        <td ><input class='form-control' type="text" id="p14009" name="p15009"></td>
+                        <td ><input class='form-control' type="text" id="p14010" name="p15010"></td>
+                        <td ><input class='form-control' type="text" id="p14011" name="p15011"></td>
+                        <td ><input class='form-control' type="text" id="p14012" name="p15012"></td>
+                        <td ><input class='form-control' type="text" id="p14013" name="p15013"></td>
+                        <td ><input class='form-control' type="text" id="p14014" name="p15014"></td>
+                        <td ><input class='form-control' type="text" id="p14015" name="p15015"></td>
+                        <td ><input class='form-control' type="text" id="p14016" name="p15016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">时长链</td>
+                        <td ><input class='form-control' type="text" id="p15001" name="p15001"></td>
+                        <td ><input class='form-control' type="text" id="p15002" name="p15002"></td>
+                        <td ><input class='form-control' type="text" id="p15003" name="p15003"></td>
+                        <td ><input class='form-control' type="text" id="p15004" name="p15004"></td>
+                        <td ><input class='form-control' type="text" id="p15005" name="p15005"></td>
+                        <td ><input class='form-control' type="text" id="p15006" name="p15006"></td>
+                        <td ><input class='form-control' type="text" id="p15007" name="p15007"></td>
+                        <td ><input class='form-control' type="text" id="p15008" name="p15008"></td>
+                        <td ><input class='form-control' type="text" id="p15009" name="p15009"></td>
+                        <td ><input class='form-control' type="text" id="p15010" name="p15010"></td>
+                        <td ><input class='form-control' type="text" id="p15011" name="p15011"></td>
+                        <td ><input class='form-control' type="text" id="p15012" name="p15012"></td>
+                        <td ><input class='form-control' type="text" id="p15013" name="p15013"></td>
+                        <td ><input class='form-control' type="text" id="p15014" name="p15014"></td>
+                        <td ><input class='form-control' type="text" id="p15015" name="p15015"></td>
+                        <td ><input class='form-control' type="text" id="p15016" name="p15016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p16001" name="p16001"></td>
+                        <td ><input class='form-control' type="text" id="p16002" name="p16002"></td>
+                        <td ><input class='form-control' type="text" id="p16003" name="p16003"></td>
+                        <td ><input class='form-control' type="text" id="p16004" name="p16004"></td>
+                        <td ><input class='form-control' type="text" id="p16005" name="p16005"></td>
+                        <td ><input class='form-control' type="text" id="p16006" name="p16006"></td>
+                        <td ><input class='form-control' type="text" id="p16007" name="p16007"></td>
+                        <td ><input class='form-control' type="text" id="p16008" name="p16008"></td>
+                        <td ><input class='form-control' type="text" id="p16009" name="p16009"></td>
+                        <td ><input class='form-control' type="text" id="p16010" name="p16010"></td>
+                        <td ><input class='form-control' type="text" id="p16011" name="p16011"></td>
+                        <td ><input class='form-control' type="text" id="p16012" name="p16012"></td>
+                        <td ><input class='form-control' type="text" id="p16013" name="p16013"></td>
+                        <td ><input class='form-control' type="text" id="p16014" name="p16014"></td>
+                        <td ><input class='form-control' type="text" id="p16015" name="p16015"></td>
+                        <td ><input class='form-control' type="text" id="p16016" name="p16016"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:5</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p17001" name="p17001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p17002" name="p17002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p17003" name="p17003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p17004" name="p17004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p18001" name="p18001"></td>
+                        <td ><input class='form-control' type="text" id="p18002" name="p18002"></td>
+                        <td ><input class='form-control' type="text" id="p18003" name="p18003"></td>
+                        <td ><input class='form-control' type="text" id="p18004" name="p18004"></td>
+                        <td ><input class='form-control' type="text" id="p18005" name="p18005"></td>
+                        <td ><input class='form-control' type="text" id="p18006" name="p18006"></td>
+                        <td ><input class='form-control' type="text" id="p18007" name="p18007"></td>
+                        <td ><input class='form-control' type="text" id="p18008" name="p18008"></td>
+                        <td ><input class='form-control' type="text" id="p18009" name="p18009"></td>
+                        <td ><input class='form-control' type="text" id="p18010" name="p18010"></td>
+                        <td ><input class='form-control' type="text" id="p18011" name="p18011"></td>
+                        <td ><input class='form-control' type="text" id="p18012" name="p18012"></td>
+                        <td ><input class='form-control' type="text" id="p18013" name="p18013"></td>
+                        <td ><input class='form-control' type="text" id="p18014" name="p18014"></td>
+                        <td ><input class='form-control' type="text" id="p18015" name="p18015"></td>
+                        <td ><input class='form-control' type="text" id="p18016" name="p18016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">时长链</td>
+                        <td ><input class='form-control' type="text" id="p19001" name="p19001"></td>
+                        <td ><input class='form-control' type="text" id="p19002" name="p19002"></td>
+                        <td ><input class='form-control' type="text" id="p19003" name="p19003"></td>
+                        <td ><input class='form-control' type="text" id="p19004" name="p19004"></td>
+                        <td ><input class='form-control' type="text" id="p19005" name="p19005"></td>
+                        <td ><input class='form-control' type="text" id="p19006" name="p19006"></td>
+                        <td ><input class='form-control' type="text" id="p19007" name="p19007"></td>
+                        <td ><input class='form-control' type="text" id="p19008" name="p19008"></td>
+                        <td ><input class='form-control' type="text" id="p19009" name="p19009"></td>
+                        <td ><input class='form-control' type="text" id="p19010" name="p19010"></td>
+                        <td ><input class='form-control' type="text" id="p19011" name="p19011"></td>
+                        <td ><input class='form-control' type="text" id="p19012" name="p19012"></td>
+                        <td ><input class='form-control' type="text" id="p19013" name="p19013"></td>
+                        <td ><input class='form-control' type="text" id="p19014" name="p19014"></td>
+                        <td ><input class='form-control' type="text" id="p19015" name="p19015"></td>
+                        <td ><input class='form-control' type="text" id="p19016" name="p19016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p20001" name="p20001"></td>
+                        <td ><input class='form-control' type="text" id="p20002" name="p20002"></td>
+                        <td ><input class='form-control' type="text" id="p20003" name="p20003"></td>
+                        <td ><input class='form-control' type="text" id="p20004" name="p20004"></td>
+                        <td ><input class='form-control' type="text" id="p20005" name="p20005"></td>
+                        <td ><input class='form-control' type="text" id="p20006" name="p20006"></td>
+                        <td ><input class='form-control' type="text" id="p20007" name="p20007"></td>
+                        <td ><input class='form-control' type="text" id="p20008" name="p20008"></td>
+                        <td ><input class='form-control' type="text" id="p20009" name="p20009"></td>
+                        <td ><input class='form-control' type="text" id="p20010" name="p20010"></td>
+                        <td ><input class='form-control' type="text" id="p20011" name="p20011"></td>
+                        <td ><input class='form-control' type="text" id="p20012" name="p20012"></td>
+                        <td ><input class='form-control' type="text" id="p20013" name="p20013"></td>
+                        <td ><input class='form-control' type="text" id="p20014" name="p20014"></td>
+                        <td ><input class='form-control' type="text" id="p20015" name="p20015"></td>
+                        <td ><input class='form-control' type="text" id="p20016" name="p20016"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:6</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p21001" name="p21001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p21002" name="p21002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p21003" name="p21003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p21004" name="p21004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p22001" name="p22001"></td>
+                        <td ><input class='form-control' type="text" id="p22002" name="p22002"></td>
+                        <td ><input class='form-control' type="text" id="p22003" name="p22003"></td>
+                        <td ><input class='form-control' type="text" id="p22004" name="p22004"></td>
+                        <td ><input class='form-control' type="text" id="p22005" name="p22005"></td>
+                        <td ><input class='form-control' type="text" id="p22006" name="p22006"></td>
+                        <td ><input class='form-control' type="text" id="p22007" name="p22007"></td>
+                        <td ><input class='form-control' type="text" id="p22008" name="p22008"></td>
+                        <td ><input class='form-control' type="text" id="p22009" name="p22009"></td>
+                        <td ><input class='form-control' type="text" id="p22010" name="p22010"></td>
+                        <td ><input class='form-control' type="text" id="p22011" name="p22011"></td>
+                        <td ><input class='form-control' type="text" id="p22012" name="p22012"></td>
+                        <td ><input class='form-control' type="text" id="p22013" name="p22013"></td>
+                        <td ><input class='form-control' type="text" id="p22014" name="p22014"></td>
+                        <td ><input class='form-control' type="text" id="p22015" name="p22015"></td>
+                        <td ><input class='form-control' type="text" id="p22016" name="p22016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">时长链</td>
+                        <td ><input class='form-control' type="text" id="p23001" name="p23001"></td>
+                        <td ><input class='form-control' type="text" id="p23002" name="p23002"></td>
+                        <td ><input class='form-control' type="text" id="p23003" name="p23003"></td>
+                        <td ><input class='form-control' type="text" id="p23004" name="p23004"></td>
+                        <td ><input class='form-control' type="text" id="p23005" name="p23005"></td>
+                        <td ><input class='form-control' type="text" id="p23006" name="p23006"></td>
+                        <td ><input class='form-control' type="text" id="p23007" name="p23007"></td>
+                        <td ><input class='form-control' type="text" id="p23008" name="p23008"></td>
+                        <td ><input class='form-control' type="text" id="p23009" name="p23009"></td>
+                        <td ><input class='form-control' type="text" id="p23010" name="p23010"></td>
+                        <td ><input class='form-control' type="text" id="p23011" name="p23011"></td>
+                        <td ><input class='form-control' type="text" id="p23012" name="p23012"></td>
+                        <td ><input class='form-control' type="text" id="p23013" name="p23013"></td>
+                        <td ><input class='form-control' type="text" id="p23014" name="p23014"></td>
+                        <td ><input class='form-control' type="text" id="p23015" name="p23015"></td>
+                        <td ><input class='form-control' type="text" id="p23016" name="p23016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p24001" name="p24001"></td>
+                        <td ><input class='form-control' type="text" id="p24002" name="p24002"></td>
+                        <td ><input class='form-control' type="text" id="p24003" name="p24003"></td>
+                        <td ><input class='form-control' type="text" id="p24004" name="p24004"></td>
+                        <td ><input class='form-control' type="text" id="p24005" name="p24005"></td>
+                        <td ><input class='form-control' type="text" id="p24006" name="p24006"></td>
+                        <td ><input class='form-control' type="text" id="p24007" name="p24007"></td>
+                        <td ><input class='form-control' type="text" id="p24008" name="p24008"></td>
+                        <td ><input class='form-control' type="text" id="p24009" name="p24009"></td>
+                        <td ><input class='form-control' type="text" id="p24010" name="p24010"></td>
+                        <td ><input class='form-control' type="text" id="p24011" name="p24011"></td>
+                        <td ><input class='form-control' type="text" id="p24012" name="p24012"></td>
+                        <td ><input class='form-control' type="text" id="p24013" name="p24013"></td>
+                        <td ><input class='form-control' type="text" id="p24014" name="p24014"></td>
+                        <td ><input class='form-control' type="text" id="p24015" name="p24015"></td>
+                        <td ><input class='form-control' type="text" id="p24016" name="p24016"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:7</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p25001" name="p25001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p25002" name="p25002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p25003" name="p25003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p25004" name="p25004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p26001" name="p26001"></td>
+                        <td ><input class='form-control' type="text" id="p26002" name="p26002"></td>
+                        <td ><input class='form-control' type="text" id="p26003" name="p26003"></td>
+                        <td ><input class='form-control' type="text" id="p26004" name="p26004"></td>
+                        <td ><input class='form-control' type="text" id="p26005" name="p26005"></td>
+                        <td ><input class='form-control' type="text" id="p26006" name="p26006"></td>
+                        <td ><input class='form-control' type="text" id="p26007" name="p26007"></td>
+                        <td ><input class='form-control' type="text" id="p26008" name="p26008"></td>
+                        <td ><input class='form-control' type="text" id="p26009" name="p26009"></td>
+                        <td ><input class='form-control' type="text" id="p26010" name="p26010"></td>
+                        <td ><input class='form-control' type="text" id="p26011" name="p26011"></td>
+                        <td ><input class='form-control' type="text" id="p26012" name="p26012"></td>
+                        <td ><input class='form-control' type="text" id="p26013" name="p26013"></td>
+                        <td ><input class='form-control' type="text" id="p26014" name="p26014"></td>
+                        <td ><input class='form-control' type="text" id="p26015" name="p26015"></td>
+                        <td ><input class='form-control' type="text" id="p26016" name="p26016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">时长链</td>
+                        <td ><input class='form-control' type="text" id="p27001" name="p27001"></td>
+                        <td ><input class='form-control' type="text" id="p27002" name="p27002"></td>
+                        <td ><input class='form-control' type="text" id="p27003" name="p27003"></td>
+                        <td ><input class='form-control' type="text" id="p27004" name="p27004"></td>
+                        <td ><input class='form-control' type="text" id="p27005" name="p27005"></td>
+                        <td ><input class='form-control' type="text" id="p27006" name="p27006"></td>
+                        <td ><input class='form-control' type="text" id="p27007" name="p27007"></td>
+                        <td ><input class='form-control' type="text" id="p27008" name="p27008"></td>
+                        <td ><input class='form-control' type="text" id="p27009" name="p27009"></td>
+                        <td ><input class='form-control' type="text" id="p27010" name="p27010"></td>
+                        <td ><input class='form-control' type="text" id="p27011" name="p27011"></td>
+                        <td ><input class='form-control' type="text" id="p27012" name="p27012"></td>
+                        <td ><input class='form-control' type="text" id="p27013" name="p27013"></td>
+                        <td ><input class='form-control' type="text" id="p27014" name="p27014"></td>
+                        <td ><input class='form-control' type="text" id="p27015" name="p27015"></td>
+                        <td ><input class='form-control' type="text" id="p27016" name="p27016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p28001" name="p28001"></td>
+                        <td ><input class='form-control' type="text" id="p28002" name="p28002"></td>
+                        <td ><input class='form-control' type="text" id="p28003" name="p28003"></td>
+                        <td ><input class='form-control' type="text" id="p28004" name="p28004"></td>
+                        <td ><input class='form-control' type="text" id="p28005" name="p28005"></td>
+                        <td ><input class='form-control' type="text" id="p28006" name="p28006"></td>
+                        <td ><input class='form-control' type="text" id="p28007" name="p28007"></td>
+                        <td ><input class='form-control' type="text" id="p28008" name="p28008"></td>
+                        <td ><input class='form-control' type="text" id="p28009" name="p28009"></td>
+                        <td ><input class='form-control' type="text" id="p28010" name="p28010"></td>
+                        <td ><input class='form-control' type="text" id="p28011" name="p28011"></td>
+                        <td ><input class='form-control' type="text" id="p28012" name="p28012"></td>
+                        <td ><input class='form-control' type="text" id="p28013" name="p28013"></td>
+                        <td ><input class='form-control' type="text" id="p28014" name="p28014"></td>
+                        <td ><input class='form-control' type="text" id="p28015" name="p28015"></td>
+                        <td ><input class='form-control' type="text" id="p28016" name="p28016"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class='table'>
+                    <thead><tr>
+                        <th class="col-sm-1">方案:8</th>
+                        <th colspan="4">路口号:<input type="text" style="width: 40px" id="p29001" name="p29001"></th>
+                        <th colspan="4">周期:<input type="text" style="width: 40px" id="p29002" name="p29002"></th>
+                        <th colspan="4">协调号:<input type="text" style="width: 40px" id="p29003" name="p29003"></th>
+                        <th colspan="4">相位差:<input type="text" style="width: 40px" id="p29004" name="p29004"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-sm-1">编号</td>
+                        <td >1</td>
+                        <td >2</td>
+                        <td >3</td>
+                        <td >4</td>
+                        <td >5</td>
+                        <td >6</td>
+                        <td >7</td>
+                        <td >8</td>
+                        <td >9</td>
+                        <td >10</td>
+                        <td >11</td>
+                        <td >12</td>
+                        <td >13</td>
+                        <td >14</td>
+                        <td >15</td>
+                        <td >16</td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">阶段链</td>
+                        <td ><input class='form-control' type="text" id="p30001" name="p30001"></td>
+                        <td ><input class='form-control' type="text" id="p30002" name="p30002"></td>
+                        <td ><input class='form-control' type="text" id="p30003" name="p30003"></td>
+                        <td ><input class='form-control' type="text" id="p30004" name="p30004"></td>
+                        <td ><input class='form-control' type="text" id="p30005" name="p30005"></td>
+                        <td ><input class='form-control' type="text" id="p30006" name="p30006"></td>
+                        <td ><input class='form-control' type="text" id="p30007" name="p30007"></td>
+                        <td ><input class='form-control' type="text" id="p30008" name="p30008"></td>
+                        <td ><input class='form-control' type="text" id="p30009" name="p30009"></td>
+                        <td ><input class='form-control' type="text" id="p30010" name="p30010"></td>
+                        <td ><input class='form-control' type="text" id="p30011" name="p30011"></td>
+                        <td ><input class='form-control' type="text" id="p30012" name="p30012"></td>
+                        <td ><input class='form-control' type="text" id="p30013" name="p30013"></td>
+                        <td ><input class='form-control' type="text" id="p30014" name="p30014"></td>
+                        <td ><input class='form-control' type="text" id="p30015" name="p30015"></td>
+                        <td ><input class='form-control' type="text" id="p30016" name="p30016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">时长链</td>
+                        <td ><input class='form-control' type="text" id="p31001" name="p31001"></td>
+                        <td ><input class='form-control' type="text" id="p31002" name="p31002"></td>
+                        <td ><input class='form-control' type="text" id="p31003" name="p31003"></td>
+                        <td ><input class='form-control' type="text" id="p31004" name="p31004"></td>
+                        <td ><input class='form-control' type="text" id="p31005" name="p31005"></td>
+                        <td ><input class='form-control' type="text" id="p31006" name="p31006"></td>
+                        <td ><input class='form-control' type="text" id="p31007" name="p31007"></td>
+                        <td ><input class='form-control' type="text" id="p31008" name="p31008"></td>
+                        <td ><input class='form-control' type="text" id="p31009" name="p31009"></td>
+                        <td ><input class='form-control' type="text" id="p31010" name="p31010"></td>
+                        <td ><input class='form-control' type="text" id="p31011" name="p31011"></td>
+                        <td ><input class='form-control' type="text" id="p31012" name="p31012"></td>
+                        <td ><input class='form-control' type="text" id="p31013" name="p31013"></td>
+                        <td ><input class='form-control' type="text" id="p31014" name="p31014"></td>
+                        <td ><input class='form-control' type="text" id="p31015" name="p31015"></td>
+                        <td ><input class='form-control' type="text" id="p31016" name="p31016"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-1">模式链</td>
+                        <td ><input class='form-control' type="text" id="p32001" name="p32001"></td>
+                        <td ><input class='form-control' type="text" id="p32002" name="p32002"></td>
+                        <td ><input class='form-control' type="text" id="p32003" name="p32003"></td>
+                        <td ><input class='form-control' type="text" id="p32004" name="p32004"></td>
+                        <td ><input class='form-control' type="text" id="p32005" name="p32005"></td>
+                        <td ><input class='form-control' type="text" id="p32006" name="p32006"></td>
+                        <td ><input class='form-control' type="text" id="p32007" name="p32007"></td>
+                        <td ><input class='form-control' type="text" id="p32008" name="p32008"></td>
+                        <td ><input class='form-control' type="text" id="p32009" name="p32009"></td>
+                        <td ><input class='form-control' type="text" id="p32010" name="p32010"></td>
+                        <td ><input class='form-control' type="text" id="p32011" name="p32011"></td>
+                        <td ><input class='form-control' type="text" id="p32012" name="p32012"></td>
+                        <td ><input class='form-control' type="text" id="p32013" name="p32013"></td>
+                        <td ><input class='form-control' type="text" id="p32014" name="p32014"></td>
+                        <td ><input class='form-control' type="text" id="p32015" name="p32015"></td>
+                        <td ><input class='form-control' type="text" id="p32016" name="p32016"></td>
                     </tr>
                     </tbody>
                 </table>

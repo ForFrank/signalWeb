@@ -4,7 +4,7 @@ li{
 }
 .index-body {
     background-color:#d7d7d7;
-    overflow-y:scroll}
+    /*overflow-y:scroll*/}
 .masthead{
     min-width:320px;
     height:40px;

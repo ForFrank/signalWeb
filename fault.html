@@ -10,18 +10,22 @@
     <script>
         //设置行，列
         var cols=3; //11列
-        var rows=2; //16行
+        var rows=16; //16行
         var htmlstr="<tr>";
         for(i=1;i<=rows;i++){
             htmlstr+="<td class='col-sm-1'>"+i+"</td>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
-                    j = "0" +j;
-                };
-                htmlstr+="<td class='col-sm-1'><input class='form-control' type='text' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
+                    j = "00" +j;
+                }  else if (j>=10 && j<100) {
+                    j = "0" + j;
+                }  else {
+                    j = j;
+                }
+                htmlstr+="<td class='col-sm-1'><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
             }
             htmlstr+="</tr>";
         }
@@ -29,72 +33,20 @@
 
         $.ajax({
             type: "POST",
-            url: "/test",
+            url: "/fault1",
             contentType: 'application/json',
             dataType: "json",
             success:function(data){
                 console.log(data);
                 // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
-                $.each(data,function(key,item){
+                $.each(data.fault1[0],function(key,item){
                     $("#"+key).val(item); //返回结果为null时，转换成空字符串
                 })
             },
             error:function(){
                 alert("加载资源失败");
             }
-        });
-        function mysubmit()
-        {
-            if(window.confirm("确定要提交吗？"))
-            {
-                $.ajax({
-                    type: "POST",
-                    url: "/test",
-                    contentType: 'application/json',
-                    dataType: "json",
-                    data: $('#form1').serialize(),
-                    success:function(data){
-                        console.log(data);
-                        $.each(data,function(key,item){
-                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
-                        })
-                    },
-                    error: function(data, type, err){
-                        console.log("ajax错误类型："+type);
-                        console.log(err);
-                    }
-                });
-            }
-            else
-            {
-                return false;
-            }
-        }
-        function myrst(){
-            if(window.confirm("确定要重置吗？"))
-            {
-                $.ajax({
-                    type: "POST",
-                    url: "/test",
-                    contentType: 'application/json',
-                    dataType: "json",
-                    success:function(data){
-                        console.log(data);
-                        // var test1 = data.returnJson[0].list_1[0]; //循环遍历品牌表数据并赋给input
-                        $.each(data,function(key,item){
-                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
-                        })
-                    },
-                    error:function(){
-                        alert("加载资源失败");
-                    }
-                })
-            }
-            else
-            {
-                return false;
-            }
-        }
+        })
 
     </script>
 </head>

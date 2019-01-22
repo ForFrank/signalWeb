@@ -8,7 +8,7 @@
     <script src="js/libs/jquery-1.11.2.js"></script>
     <script>
         //设置行，列
-        var cols=8; //11列
+        var cols=10; //11列
         var rows=8; //16行
         var htmlstr="<tr>";
         for(i=1;i<=rows;i++){
@@ -24,35 +24,42 @@
                 }  else {
                     j = j;
                 }
-                htmlstr+="<td style='width: 6.3%'>" +
-                "           <div >" +
-                "           <select class='form-control' id="+"s"+i+j+" name="+"s"+i+j+">" +
-                "           <option value='0'>机动车</option>" +
-                "           <option value='1'>行人</option>" +
-                "           <option value='2'>跟随</option>" +
-                "           </select>" +
-                "           </div>" +
-                "         </td>";
-                htmlstr+="<td style='width: 6.3%'><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
+                if (j<=cols-4) {
+                    htmlstr+="<td style='width: 6.3%'>" +
+                        "           <div >" +
+                        "           <select class='form-control' id="+"s"+i+j+" name="+"s"+i+j+">" +
+                        "           <option value='0'>红灯</option>" +
+                        "           <option value='1'>绿灯</option>" +
+                        "           <option value='2'>绿闪</option>" +
+                        "           <option value='3'>黄灯</option>" +
+                        "           <option value='4'>黄闪</option>" +
+                        "           </select>" +
+                        "           </div>" +
+                        "         </td>";
+                    htmlstr+="<td style='width: 6.3%'><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
+                }  else {
+                    htmlstr+="<td style='width: 6.3%'><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
+                }
+
             }
             htmlstr+="</tr>";
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
-            url:"http://localhost:3003/test5",
-            type:"get",
+            url:"/phase1",
+            type:"POST",
             dataType:"json",
             success: function(data){
                 console.log(data);
-                fillDatas(data);
+                fillDatas(data.phase1);
             }
         });
         function fillDatas(rect_data) {
-            $.each(rect_data[3],function(key,item){
+            $.each(rect_data[0],function(key,item){
                 $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
                 $("#"+key+" option[value='"+item+"']").attr("selected","selected");
             });
-            $.each(rect_data[2],function(key,item){
+            $.each(rect_data[1],function(key,item){
                 $("#"+key).val(item); //返回结果为null时，转换成空字符串
             });
         }
@@ -62,17 +69,17 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/detector",
+                    url: "/phase1",
                     contentType: 'application/json',
                     dataType: "json",
                     data: $('#form1').serialize(),
                     success:function(data){
                         console.log(data);
-                        $.each(data[1],function(key,item){
+                        $.each(data.phase1[0],function(key,item){
                             $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
                             $("#"+key+" option[value='"+item+"']").attr("selected","selected");
                         });
-                        $.each(data[2],function(key,item){
+                        $.each(data.phase1[1],function(key,item){
                             $("#"+key).val(item); //返回结果为null时，转换成空字符串
                         });
                     },
@@ -91,16 +98,16 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/detector",
+                    url: "/phase1",
                     contentType: 'application/json',
                     dataType: "json",
                     success:function(data){
                         console.log(data);
-                        $.each(data[3],function(key,item){
+                        $.each(data.phase1[0],function(key,item){
                             $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
                             $("#"+key+" option[value='"+item+"']").attr("selected","selected");
                         });
-                        $.each(data[2],function(key,item){
+                        $.each(data.phase1[1],function(key,item){
                             $("#"+key).val(item); //返回结果为null时，转换成空字符串
                         });
                     },

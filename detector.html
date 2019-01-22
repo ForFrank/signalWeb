@@ -9,7 +9,7 @@
     <script>
         //设置行，列
         var cols=3; //11列
-        var rows=8; //16行
+        var rows=32; //16行
         var htmlstr="<tr>";
         var q = 0;
         for(i=1;i<=rows;i++){
@@ -40,12 +40,12 @@
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
-            url:"/detect",
+            url:"/detect1",
             type:"POST",
             dataType:"json",
             success: function(data){
-                console.log(data);
-                fillDatas(data);
+                console.log(data.detect1);
+                fillDatas(data.detect1);
             }
         });
         function fillDatas(rect_data) {
@@ -63,17 +63,17 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/detect",
+                    url: "/detect1",
                     contentType: 'application/json',
                     dataType: "json",
                     data: $('#form1').serialize(),
                     success:function(data){
-                        console.log(data);
-                        $.each(data[0],function(key,item){
+                        console.log(data.detect1);
+                        $.each(data.detect1[0],function(key,item){
                             $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
                             $("#"+key+" option[value='"+item+"']").attr("selected","selected");
                         });
-                        $.each(data[1],function(key,item){
+                        $.each(data.detect1[1],function(key,item){
                             $("#"+key).val(item); //返回结果为null时，转换成空字符串
                         })
                     },
@@ -92,16 +92,16 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/detect",
+                    url: "/detect1",
                     contentType: 'application/json',
                     dataType: "json",
                     success:function(data){
-                        console.log(data);
-                        $.each(data[0],function(key,item){
+                        console.log(data.detect1);
+                        $.each(data.detect1[0],function(key,item){
                             $("#"+key+" option[value='']").removeAttr("selected");//2.移除默认选项的选中状态  removeAttr("selected")
                             $("#"+key+" option[value='"+item+"']").attr("selected","selected");
                         });
-                        $.each(data[1],function(key,item){
+                        $.each(data.detect1[1],function(key,item){
                             $("#"+key).val(item); //返回结果为null时，转换成空字符串
                         });
                     },

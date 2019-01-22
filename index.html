@@ -22,8 +22,9 @@
     </header>
     <!--头部结束-->
     <section class="container">
-        <div class="row main-container">
-            <div class="navbar navbar-default col-sm-3 col-lg-2" id="nav">
+        <div class="row main-container" style="margin: 0 auto">
+            <!--侧栏开始-->
+            <div class="navbar navbar-default col-sm-3 col-lg-1" id="nav">
                 <div class="navbar-header" style="background: #ed7020">
                     <img src="img/logo-inverse.png"class="visible-xs-inline">
                     <button type="button" id="navbar-button" class="navbar-toggle collapsed"
@@ -34,37 +35,48 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <!--侧栏开始-->
                 <nav class="navbar-collapse" id="nav-menu">
                     <ul class="nav nav-content" id="sub-menu">
                         <li data-id="general">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                 通用
+                                 通&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用
+                            </a>
+                        </li>
+                        <li data-id="urgent">
+                            <a href="javascript:void(0)">
+                                <span class="fa fa-check-square fa-lg">&nbsp;</span>
+                                紧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;急
+                            </a>
+                        </li>
+                        <li data-id="first">
+                            <a href="javascript:void(0)">
+                                <span class="fa fa-check-square fa-lg">&nbsp;</span>
+                                优&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先
                             </a>
                         </li>
                         <li data-id="detector">
                             <a  href="javascript:void(0)">
                                 <span class="fa fa-table fa-lg">&nbsp;</span>
-                                检测器
+                                检&nbsp;&nbsp;测&nbsp;&nbsp;器
                             </a>
                         </li>
                         <li data-id="lamp">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                灯组
+                                灯&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组
                             </a>
                         </li>
                         <li data-id="phaseparameter">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                相位
+                                相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位
                             </a>
                         </li>
                         <li data-id="requirement">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                需求
+                                需&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;求
                             </a>
                         </li>
                         <li data-id="phaselamp">
@@ -76,50 +88,50 @@
                         <li data-id="statephase">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                阶段
+                                阶&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;段
                             </a>
                         </li>
 
                         <li data-id="latestart">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                晚放
+                                晚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;放
                             </a>
                         </li>
                         <li data-id="earlyend">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                早断
+                                早&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;断
                             </a>
                         </li>
                         <li data-id="conflict">
                             <a  href="javascript:void(0)">
                                 <span class="fa fa-ban fa-lg">&nbsp;</span>
-                                冲突
+                                冲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;突
                             </a>
                         </li>
                         <li data-id="greeninterval">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                绿间隔
+                                绿&nbsp;&nbsp;间&nbsp;&nbsp;隔
                             </a>
                         </li>
                         <li data-id="programme">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                方案
+                                方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;案
                             </a>
                         </li>
                         <li data-id="yearplan">
                             <a  href="javascript:void(0)">
                                 <span class="fa fa-calendar fa-lg">&nbsp;</span>
-                                年计划
+                                年&nbsp;&nbsp;计&nbsp;&nbsp;划
                             </a>
                         </li>
                         <li data-id="dayplan">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-calendar-plus-o fa-lg">&nbsp;</span>
-                                日计划
+                                日&nbsp;计&nbsp;&nbsp;划
                             </a>
                         </li>
                         <li data-id="state">
@@ -130,21 +142,21 @@
                         <li data-id="operation_log">
                             <a href="javascript:void(0)" class>
                                 <span class="fa fa-tag fa-lg">&nbsp;</span>
-                                日志
+                                日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;志
                             </a>
                         </li>
                         <li data-id="fault">
                             <a href="javascript:void(0)">
                                 <span class="fa fa-check-square fa-lg">&nbsp;</span>
-                                故障
+                                故&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;障
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <!--侧栏结束-->
             </div>
+            <!--侧栏结束-->
             <!--内容开始-->
-            <article class="col-sm-9 col-lg-10 main-content" id="main-content">
+            <article class="col-sm-9 col-lg-11 main-content" id="main-content">
                 <div id="iframe"></div>
             </article>
             <!--内容结束-->

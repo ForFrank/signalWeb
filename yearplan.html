@@ -20,8 +20,14 @@
         var rows=8; //16行
         var htmlstr=" ";
         for(i=1;i<=rows;i++){
+            if (i<10) {
+                i = "0" +i;
+            }
             htmlstr+="<tr><td rowspan='2'>"+i+"</td>" +
-                "<td>1</td><td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
+                "<td rowspan='2'><input type='text' name="+"p"+i+" id="+"p"+i+" style='width:30px;height:20px'></td>" +
+                "<td rowspan='2'><input type='text' name="+"s"+i+" id="+"s"+i+" style='width:30px;height:20px'></td>" +
+                "<td rowspan='2'><input type='text' name="+"q"+i+" id="+"q"+i+" style='width:30px;height:20px'></td>"+
+                "<td style='background: #9999FF'>1</td><td style='background: #9999FF'>2</td><td style='background: #9999FF'>3</td>" +
                 "<td style='background: #9999FF'>4</td><td style='background: #9999FF'>5</td><td style='background: #9999FF'>6</td>" +
                 "<td style='background: #9999FF'>7</td><td style='background: #9999FF'>8</td><td style='background: #9999FF'>9</td>" +
                 "<td style='background: #9999FF'>10</td><td style='background: #9999FF'>11</td><td style='background: #9999FF'>12</td>" +
@@ -39,10 +45,6 @@
                 "<td style='background: #FFCC99'>3</td><td style='background: #FFCC99'>4</td><td style='background: #FFCC99'>5</td>" +
                 "<td style='background: #FFCC99'>6</td><td style='background: #FFCC99'>7</td>" +
                 "<td><input id="+i+" type='button' onclick=\"allCkb('test1')\" value='全选' style='width:35px;height:20px'></tr><tr>";
-            if (i<10) {
-                i = "0" +i;
-            }
-            htmlstr+="<td><input type='text' name="+"p"+i+" id="+"p"+i+" style='width:30px;height:20px'></td>";
             for(j=1;j<=cols;j++){
                 if (j<10) {
                     j = "00" +j;
@@ -58,13 +60,19 @@
         }
         document.getElementById('phase1').innerHTML = htmlstr;
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test1",
+            type: "POST",
+            url: "/schedule1",
+            contentType: 'application/json',
+            dataType: "json",
             success:function(data){
                 console.log(data[0]);
-                $.each(data[0], function(key,item){
-                    $("input[name='test1'][value='"+item+"']").attr("checked","checked");
+                $.each(data.schedule1[1], function(key,item){
+                    // $("input[name='test1'][value='"+item+"']").attr("checked","checked");
+                    $("#"+key).val(item).attr("checked","checked");
                 });
+                $.each(data.schedule1[0],function(key,item){
+                    $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                })
             },
             error:function(){
                 alert("加载资源失败");
@@ -75,13 +83,49 @@
         {
             if(window.confirm("确定要提交吗？"))
             {
-                var test1 = $("input[name='test1']:checked").serialize();
+                // var test1 = $("input[name='test1']:checked").serialize();
                 $.ajax({
-                    type: "get",
-                    url: " http://localhost:3003/test",
-                    data: test1,
+                    type: "POST",
+                    url: "/schedule1",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
                     success:function(data){
                         console.log(data);
+                        $.each(data.schedule1[1], function(key,item){
+                            // $("input[name='test1'][value='"+item+"']").attr("checked","checked");
+                            $("#"+key).val(item).attr("checked","checked");
+                        });
+                        $.each(data.schedule1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        })
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/schedule1",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        $.each(data.schedule1[1],function(key,item){
+                            $("#"+key).val(item).attr("checked","checked");
+                        });
+                        $.each(data.schedule1[0],function(key,item){
+                            $("#"+key).val(item); //返回结果为null时，转换成空字符串
+                        });
                     },
                     error:function(){
                         alert("加载资源失败");
@@ -140,7 +184,9 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>计划</th>
+                    <th>路口号</th>
+                    <th>优先级</th>
+                    <th>时间表</th>
                     <th colspan="12">月份</th>
                     <th colspan="31">月日</th>
                     <th colspan="7">星期</th>
