@@ -15,11 +15,15 @@
             htmlstr+="<td>"+i+"</td>";
             if (i<10) {
                 i = "0" +i;
-            };
+            }
             for(j=1;j<=cols;j++){
                 if (j<10) {
-                    j = "0" +j;
-                };
+                    j = "00" +j;
+                }  else if (j>=10 && j<100) {
+                    j = "0" + j;
+                }  else {
+                    j = j;
+                }
                 htmlstr+="<td><input class='form-control' type='text' name="+"p"+i+j+" id="+"p"+i+j+"></td>";
             }
             htmlstr+="</tr>";

@@ -12,19 +12,88 @@
         var rows=32; //16行
         var htmlstr="<tr>";
         for(i=1;i<=rows;i++){
-            htmlstr+="<td >"+i+"</td>";
+            htmlstr+="<td>"+i+"</td></td>";
             if (i<10) {
                 i = "0" +i;
             };
             for(j=1;j<=cols;j++){
                 if (j<10) {
-                    j = "0" +j;
-                };
-                htmlstr+="<td ><input type='checkbox' name="+"p"+i+j+" id="+"P"+i+j+"></td>";
+                    j = "00" +j;
+                }  else if (j>=10 && j<100) {
+                    j = "0" + j;
+                }  else {
+                    j = j;
+                }
+                htmlstr+="<td><input type='checkbox' name="+"p"+i+j+" id="+"p"+i+j+" value="+"p"+i+j+"></td>";
             }
             htmlstr+="</tr>";
         }
         document.getElementById('phase1').innerHTML = htmlstr;
+        $.ajax({
+            type: "get",
+            url: "http://localhost:3003/test5",
+            success:function(data){
+                console.log(data);
+                $.each(data[4], function(key,item){
+                    // $("input[name='test1'][value='"+item+"']").attr("checked","checked");
+                    $("#"+key).val(item).attr("checked","checked");
+                });
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+        function mysubmit()
+        {
+            if(window.confirm("确定要提交吗？"))
+            {
+                // var test1 = $("input[name='test1']:checked").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/detector",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    data: $('#form1').serialize(),
+                    success:function(data){
+                        console.log(data);
+                        $.each(data[1],function(key,item){
+                            $("#"+key).val(item).attr("checked","checked");
+                        });
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        }
+        function myrst(){
+            if(window.confirm("确定要重置吗？"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/detector",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        $.each(data[1],function(key,item){
+                            $("#"+key).val(item).attr("checked","checked");
+                        });
+                    },
+                    error:function(){
+                        alert("加载资源失败");
+                    }
+                })
+            }
+            else
+            {
+                return false;
+            }
+        }
     </script>
 </head>
 <body>
