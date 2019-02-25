@@ -228,18 +228,39 @@
         $.each(rect_data,function(key,item){
             switch (item)
             {
-                case 0:
+                case 1:
                     document.getElementById(key).style.background = "black";
                     break;
-                case 1:
-                    document.getElementById(key).style.background = "red";
+                case 16:
+                    document.getElementById(key).style.background = "#f00";
                     // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
                     break;
-                case 2:
+                case 17:
+                    document.getElementById(key).style.background = "#ff3050";
+                    break;
+                case 18:
+                    document.getElementById(key).style.background = "#ff586f";
+                    break;
+                case 32:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+                case 33:
+                    document.getElementById(key).style.background = "#6cff8a";
+                    break;
+                case 34:
+                    document.getElementById(key).style.background = "#9dff92";
+                    break;
+                case 48:
                     document.getElementById(key).style.background = "#ff0";
                     break;
-                case 3:
-                    document.getElementById(key).style.background = "#0f0";
+                case 49:
+                    document.getElementById(key).style.background = "#ffd537";
+                    break;
+                case 50:
+                    document.getElementById(key).style.background = "#ffb839";
+                    break;
+                case 64:
+                    document.getElementById(key).style.background = "#FF8959";
                     break;
             }
         })
@@ -270,7 +291,7 @@
             }
         });
     };
-    // setInterval(fun,1000);
+    setInterval(fun,1000);
 </script>
 <body>
 <section class="container-fluid">

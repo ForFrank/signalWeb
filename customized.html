@@ -15,14 +15,14 @@
             width: 96%;
             border: 2px solid #ccc;
             float: left;
-            background: #f0f;
+            background: #ccc;
         }
         .container-left-right td{
             width: 6px;
             height: 18px;
             border-top:4px solid white;
             border-bottom:4px solid white;
-            border-right:1px solid #dcdcdc;
+            /*border-right:1px solid #dcdcdc;*/
         }
         .container-left-right th{
             border-right:1px solid #2d2d30;
@@ -80,7 +80,7 @@
             <tbody>
             <tr>
                 <td>1</td>
-                <td id="s01000">其他方式</td>
+                <td id="s01000"></td>
                 <td id="s01001">1</td>
                 <td id="s01002">1</td>
                 <td id="s01003">60</td>
@@ -90,7 +90,7 @@
             </tr>
             <tr>
                 <td>2</td>
-                <td id="s02000">其他方式</td>
+                <td id="s02000"></td>
                 <td id="s02001">1</td>
                 <td id="s02002">1</td>
                 <td id="s02003">60</td>
@@ -100,7 +100,7 @@
             </tr>
             <tr>
                 <td>3</td>
-                <td id="s03000">其他方式</td>
+                <td id="s03000"></td>
                 <td id="s03001">1</td>
                 <td id="s03002">1</td>
                 <td id="s03003">60</td>
@@ -110,7 +110,7 @@
             </tr>
             <tr>
                 <td>4</td>
-                <td id="s04000">其他方式</td>
+                <td id="s04000"></td>
                 <td id="s04001">1</td>
                 <td id="s04002">1</td>
                 <td id="s04003">60</td>
@@ -201,223 +201,183 @@
     /*
     * 信号机状态
     */
-    function single(single_data) {
-        var status = [];
-        var a = single_data;
-        status.push(
-            {"s00000":a.s00000,"s00001":a.s00001,"s00002":a.s00002,"s00003":a.s00003},
-            {"s00004":a.s00004,"s01001":a.s01001,"s01002":a.s01002,"s01003":a.s01003,"s01004":a.s01004,
-                "s01005":a.s01005,"s02001":a.s02001,"s02002":a.s02002,"s02003":a.s02003,"s02004":a.s02004,
-                "s02005":a.s02005,"s03001":a.s03001,"s03002":a.s03002,"s03003":a.s03003,"s03004":a.s03004,
-                "s03005":a.s03005,"s04001":a.s04001,"s04002":a.s04002,"s04003":a.s04003,"s04004":a.s04004,
-                "s04005":a.s04005,"s10000":a.s10000,"s10001":a.s10001,"s10002":a.s10002,"s10003":a.s10003,"s10004":a.s10004,
-                "s10005":a.s10005,"s10006":a.s10006,"s10007":a.s10007,"s10008":a.s10008,"s10009":a.s10009,
-                "s10010":a.s10010,"s10011":a.s10011,"s10012":a.s10012,"s10013":a.s10013,"s10014":a.s10014,
-                "s10015":a.s10015,"s11000":a.s11000,"s11001":a.s11001,"s11002":a.s11002,"s11003":a.s11003,"s11004":a.s11004,
-                "s11005":a.s11005,"s11006":a.s11006,"s11007":a.s11007,"s11008":a.s11008,"s11009":a.s11009,
-                "s11010":a.s11010,"s11011":a.s11011,"s11012":a.s11012,"s11013":a.s11013,"s11014":a.s11014,
-                "s11015":a.s11015,"s12000":a.s12000,"s12001":a.s12001,"s12002":a.s12002,"s12003":a.s12003,"s12004":a.s12004,
-                "s12005":a.s12005,"s12006":a.s12006,"s12007":a.s12007,"s12008":a.s12008,"s12009":a.s12009,
-                "s12010":a.s12010,"s12011":a.s12011,"s12012":a.s12012,"s12013":a.s12013,"s12014":a.s12014,
-                "s12015":a.s12015},
-            {"s01000":a.s01000,"s02000":a.s02000,"s03000":a.s03000,"s04000":a.s04000},
-            {"s01006":a.s01006,"s02006":a.s02006,"s03006":a.s03006,"s04006":a.s04006},
-            {"s13000":a.s13000,"s13001":a.s13001,"s13002":a.s13002,"s13003":a.s13003,"s13004":a.s13004,
-                "s13005":a.s13005,"s13006":a.s13006,"s13007":a.s13007,"s13008":a.s13008,"s13009":a.s13009,
-                "s13010":a.s13010,"s13011":a.s13011,"s13012":a.s13012,"s13013":a.s13013,"s13014":a.s13014,
-                "s13015":a.s13015},
-            {"s14000":a.s14000,"s14001":a.s14001,"s14002":a.s14002,"s14003":a.s14003,"s14004":a.s14004,
-                "s14005":a.s14005,"s14006":a.s14006,"s14007":a.s14007,"s14008":a.s14008,"s14009":a.s14009,
-                "s14010":a.s14010,"s14011":a.s14011,"s14012":a.s14012,"s14013":a.s14013,"s14014":a.s14014,
-                "s14015":a.s14015}
-        );
-        $.each(status[0],function(key,item){
-            switch (item)
-            {
-                case 0:
-                    document.getElementById(key).style.background = "#0f0";
-                    break;
-                case 1:
-                    document.getElementById(key).style.background = "#ccc";
-                    break;
-            }
-        });
-        $.each(status[1],function(key,item){
-            document.getElementById(key).innerText =item;
-        });
-        $.each(status[2],function(key,item){
-            switch (item)
-            {
-                case 1:
-                    document.getElementById(key).innerText ="启动黄闪";
-                    break;
-                case 2:
-                    document.getElementById(key).innerText ="启动全红";
-                    break;
-                case 3:
-                    document.getElementById(key).innerText ="启动全红";
-                    break;
-                case 4:
-                    document.getElementById(key).innerText ="启动全红";
-                    break;
-                case 5:
-                    document.getElementById(key).innerText ="面板全红";
-                    break;
-                case 6:
-                    document.getElementById(key).innerText ="面板步进";
-                    break;
-                case 7:
-                    document.getElementById(key).innerText ="手动黄闪";
-                    break;
-                case 8:
-                    document.getElementById(key).innerText ="手动全红";
-                    break;
-                case 9:
-                    document.getElementById(key).innerText ="手动方案";
-                    break;
-                case 10:
-                    document.getElementById(key).innerText ="系统关灯";
-                    break;
-                case 11:
-                    document.getElementById(key).innerText ="系统黄闪";
-                    break;
-                case 12:
-                    document.getElementById(key).innerText ="系统全红";
-                    break;
-                case 13:
-                    document.getElementById(key).innerText ="系统方案";
-                    break;
-                case 14:
-                    document.getElementById(key).innerText ="本地关灯";
-                    break;
-                case 15:
-                    document.getElementById(key).innerText ="本地黄闪";
-                    break;
-                case 16:
-                    document.getElementById(key).innerText ="本地全红";
-                    break;
-                case 17:
-                    document.getElementById(key).innerText ="本地感应";
-                    break;
-                case 18:
-                    document.getElementById(key).innerText ="本地方案";
-                    break;
-                case 0:
-                    document.getElementById(key).innerText ="其他方式";
-                    break;
-            }
-        });
-        $.each(status[3],function(key,item){
-            switch (item)
-            {
-                case 0:
-                    document.getElementById(key).innerText ="未协调";
-                    break;
-                case 1:
-                    document.getElementById(key).innerText ="协调";
-                    break;
-            }
-        });
-        $.each(status[4],function(key,item){
-            switch (item)
-            {
-                case 0:
-                    document.getElementById(key).style.background = "black";
-                    break;
-                case 1:
-                    document.getElementById(key).style.background = "red";
-                    break;
-                case 2:
-                    document.getElementById(key).style.background = "#ff0";
-                    break;
-                case 3:
-                    document.getElementById(key).style.background = "#0f0";
-                    break;
-            }
-        });
-        $.each(status[5],function(key,item){
-            switch (item)
-            {
-                case 0:
-                    document.getElementById(key).innerText ="---";
-                    break;
-                case 1:
-                    document.getElementById(key).innerText ="call";
-                    break;
-            }
-        });
-    }
-    /*
-    * 相位状态
-    */
-    //设置行，列
-    var cols=180; //11列
-    var rows=16; //16行
-    var htmlstr="<tr>";
-    for(var i=0;i<rows;i++){
-        if (i<10) {
-            i = "0" +i;
+        function single(single_data) {
+            var status = [];
+            var a = single_data;
+            console.log(single_data);
+
+            status.push(
+                {"s00000":a.s00000,"s00001":a.s00001,"s00002":a.s00002,"s00003":a.s00003},
+                {"s00004":a.s00004,"s01001":a.s01001,"s01002":a.s01002,"s01003":a.s01003,"s01004":a.s01004,
+                    "s01005":a.s01005,"s02001":a.s02001,"s02002":a.s02002,"s02003":a.s02003,"s02004":a.s02004,
+                    "s02005":a.s02005,"s03001":a.s03001,"s03002":a.s03002,"s03003":a.s03003,"s03004":a.s03004,
+                    "s03005":a.s03005,"s04001":a.s04001,"s04002":a.s04002,"s04003":a.s04003,"s04004":a.s04004,
+                    "s04005":a.s04005},
+                {"s01000":a.s01000,"s02000":a.s02000,"s03000":a.s03000,"s04000":a.s04000},
+                {"s01006":a.s01006,"s02006":a.s02006,"s03006":a.s03006,"s04006":a.s04006}
+            );
+            $.each(status[0],function(key,item){
+                switch (item)
+                {
+                    case 0:
+                        document.getElementById(key).style.background = "#0f0";
+                        break;
+                    case 1:
+                        document.getElementById(key).style.background = "#ccc";
+                        break;
+                }
+            });
+            $.each(status[1],function(key,item){
+                document.getElementById(key).innerText =item;
+            });
+            $.each(status[2],function(key,item){
+                switch (item)
+                {
+                    case 16:
+                        document.getElementById(key).innerText ="中心控制";
+                        break;
+                    case 17:
+                        document.getElementById(key).innerText ="中心时间表控制";
+                        break;
+                    case 18:
+                        document.getElementById(key).innerText ="中心优化控制";
+                        break;
+                    case 19:
+                        document.getElementById(key).innerText =" 中心协调控制";
+                        break;
+                    case 20:
+                        document.getElementById(key).innerText ="中心自适应控制";
+                        break;
+                    case 21:
+                        document.getElementById(key).innerText =" 中心手动控制";
+                        break;
+                    case 32:
+                        document.getElementById(key).innerText ="本地控制";
+                        break;
+                    case 33:
+                        document.getElementById(key).innerText ="本地固定周期控制";
+                        break;
+                    case 34:
+                        document.getElementById(key).innerText ="本地感应控制";
+                        break;
+                    case 35:
+                        document.getElementById(key).innerText ="本地协调控制";
+                        break;
+                    case 36:
+                        document.getElementById(key).innerText ="本地自适应控制";
+                        break;
+                    case 37:
+                        document.getElementById(key).innerText ="本地手动控制";
+                        break;
+                    case 38:
+                        document.getElementById(key).innerText ="本地优先控制";
+                        break;
+                    case 39:
+                        document.getElementById(key).innerText ="本地紧急控制";
+                        break;
+                    case 48:
+                        document.getElementById(key).innerText ="特殊控制";
+                        break;
+                    case 49:
+                        document.getElementById(key).innerText ="黄闪控制";
+                        break;
+                    case 50:
+                        document.getElementById(key).innerText =" 全红控制";
+                        break;
+                    case 51:
+                        document.getElementById(key).innerText ="关灯控制";
+                        break;
+                    default:
+                        document.getElementById(key).innerText ="中心控制";
+                        break;
+                }
+            });
+            $.each(status[3],function(key,item){
+                switch (item)
+                {
+                    case 0:
+                        document.getElementById(key).innerText ="未协调";
+                        break;
+                    case 1:
+                        document.getElementById(key).innerText ="协调";
+                        break;
+                }
+            });
         }
-        for(var j=0;j<cols;j++){
-            if (j<10) {
-                j = "00" +j;
-            }  else if (j>=10 && j<100) {
-                j = "0" + j;
-            }  else {
-                j = j;
+        /*
+        * 相位状态
+        */
+        //设置行，列
+        var cols=180; //11列
+        var rows=16; //16行
+        var htmlstr="<tr>";
+        for(var i=0;i<rows;i++){
+            if (i<10) {
+                i = "0" +i;
             }
-            htmlstr+="<td id="+"p"+i+j+"></td>";
+            for(var j=0;j<cols;j++){
+                if (j<10) {
+                    j = "00" +j;
+                }  else if (j>=10 && j<100) {
+                    j = "0" + j;
+                }  else {
+                    j = j;
+                }
+                htmlstr+="<td id="+"p"+i+j+"></td>";
+            }
+            htmlstr+="</tr>";
         }
-        htmlstr+="</tr>";
-    }
-    document.getElementById('phase1').innerHTML = htmlstr;
-    function fillDatas(rect_data) {
-        $.each(rect_data,function(key,item){
-            switch (item)
-            {
-                case 0:
-                    document.getElementById(key).style.background = "black";
-                    break;
-                case 1:
-                    document.getElementById(key).style.background = "red";
-                    // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
-                    break;
-                case 2:
-                    document.getElementById(key).style.background = "#ff0";
-                    break;
-                case 3:
-                    document.getElementById(key).style.background = "#0f0";
-                    break;
-            }
-        })
-    }
-    var fun = function() {
-        $.ajax({
-            type: "POST",
-            url: "/get_status",
-            contentType: 'application/json',
-            dataType: "json",
-            success:function(data){
-                single(data);
-            },
-            error:function(){
-                alert("加载资源失败");
-            }
-        });
-        $.ajax({
-            type: "POST",
-            url: "/get_lamp",
-            contentType: 'application/json',
-            dataType: "json",
-            success:function(data){
-                fillDatas(data);
-            },
-            error:function(){
-                alert("加载资源失败");
-            }
-        });
-    };
-    // setInterval(fun,1000);
+        document.getElementById('phase1').innerHTML = htmlstr;
+        function fillDatas(rect_data) {
+            $.each(rect_data,function(key,item){
+                switch (item)
+                {
+                    case 1:
+                        document.getElementById(key).style.background = "red";
+                        break;
+                    case 16:
+                        document.getElementById(key).style.background = "red";
+                        // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
+                        break;
+                    case 32:
+                        document.getElementById(key).style.background = "#0f0";
+                        break;
+                    case 48:
+                        document.getElementById(key).style.background = "#ff0";
+                        break;
+                }
+            })
+        }
+        var fun = function() {
+            $.ajax({
+                type: "POST",
+                url: "/get_status",
+                contentType: 'application/json',
+                dataType: "json",
+                success:function(data){
+                    single(data);
+                    console.log(data);
+                },
+                error:function(){
+                    alert("加载资源失败");
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "/get_lamp",
+                contentType: 'application/json',
+                dataType: "json",
+                success:function(data){
+                    fillDatas(data);
+                },
+                error:function(){
+                    alert("加载资源失败");
+                }
+            });
+        };
+        setInterval(fun,1000);
+
+
 </script>
 </body>
 </html>
