@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <link rel="stylesheet" href="css/reasyui.css">
+    <style>
+        .container{
+            width: 980px;
+            height: 508px;
+            background: #ccc;
+        }
+        .container-left-right {
+            width: 95%;
+            border: 2px solid #ccc;
+            float: left;
+            background: #ccc;
+        }
+        .container-left-right td{
+            width: 6px;
+            height: 18px;
+            border-top:4px solid white;
+            border-bottom:4px solid white;
+            /*border-right:1px solid #dcdcdc;*/
+        }
+        .container-left-right th{
+            border-right:1px solid #2d2d30;
+            text-align: right;
+            background: #D5D5D5;
+        }
+        .container-left-right span{
+            float: left;
+        }
+        .container-left-left {
+            width: 5%;
+            float: left;
+        }
+        .container-left-left td{
+            font-size: 13px;
+        }
+        .container-left-left th{
+            height: 23px;
+        }
+        .container-right li{
+            float: left;
+            padding: 5px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            list-style: none;
+        }
+        .container-right input{
+            margin-top: 6px;
+            margin-left: 230px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="container-right">
+        <ul class="channel-top">
+            <li id="s00000">运行正常</li>
+            <li id="s00001">GPS</li>
+            <li id="s00002">中心对时</li>
+            <li id="s00003">大灯开</li>
+            <li id="s00004">2018-01-20 00:00:00</li>
+            <input type="button" value="切换至灯组" onclick="test()"/>
+
+        </ul>
+    </div>
+    <div >
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="col-sm-1">路口号</th>
+                <th class="col-sm-1">控制模式</th>
+                <th class="col-sm-1">时间表号</th>
+                <th class="col-sm-1">方案号</th>
+                <th class="col-sm-1">周期</th>
+                <th class="col-sm-1">运行时长</th>
+                <th class="col-sm-1">当前阶段</th>
+                <th class="col-sm-1">协调状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td id="s01000"></td>
+                <td id="s01001">1</td>
+                <td id="s01002">1</td>
+                <td id="s01003">60</td>
+                <td id="s01004">30</td>
+                <td id="s01005">2</td>
+                <td id="s01006">1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td id="s02000"></td>
+                <td id="s02001">1</td>
+                <td id="s02002">1</td>
+                <td id="s02003">60</td>
+                <td id="s02004">30</td>
+                <td id="s02005">2</td>
+                <td id="s02006">1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td id="s03000"></td>
+                <td id="s03001">1</td>
+                <td id="s03002">1</td>
+                <td id="s03003">60</td>
+                <td id="s03004">30</td>
+                <td id="s03005">2</td>
+                <td id="s03006">1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td id="s04000"></td>
+                <td id="s04001">1</td>
+                <td id="s04002">1</td>
+                <td id="s04003">60</td>
+                <td id="s04004">30</td>
+                <td id="s04005">2</td>
+                <td id="s04006">1</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <div class="container-left-left">
+            <table>
+                <thead>
+                <tr>
+                    <th>检测器</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container-left-right">
+            <table>
+                <tr>
+                    <th colspan="30">30</th>
+                    <th colspan="30"><span>S</span>60</th>
+                    <th colspan="30"><span>S</span>90</th>
+                    <th colspan="30"><span>S</span>120</th>
+                    <th colspan="30"><span>S</span>150</th>
+                    <th colspan="30"><span>S</span>180</th>
+                </tr>
+                <tbody id="phase1"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<script>
+    function test(){
+        location.href="getlamp.html";
+    }
+    $(document).keydown(function(event){
+        　　　if(event.keyCode == 66){
+               location.href="getlamp.html";
+           }
+        　　});
+    /*
+    * 信号机状态
+    */
+    function single(single_data) {
+        var status = [];
+        var a = single_data;
+        console.log(single_data);
+
+        status.push(
+            {"s00000":a.s00000,"s00001":a.s00001,"s00002":a.s00002,"s00003":a.s00003},
+            {"s00004":a.s00004,"s01001":a.s01001,"s01002":a.s01002,"s01003":a.s01003,"s01004":a.s01004,
+                "s01005":a.s01005,"s02001":a.s02001,"s02002":a.s02002,"s02003":a.s02003,"s02004":a.s02004,
+                "s02005":a.s02005,"s03001":a.s03001,"s03002":a.s03002,"s03003":a.s03003,"s03004":a.s03004,
+                "s03005":a.s03005,"s04001":a.s04001,"s04002":a.s04002,"s04003":a.s04003,"s04004":a.s04004,
+                "s04005":a.s04005},
+            {"s01000":a.s01000,"s02000":a.s02000,"s03000":a.s03000,"s04000":a.s04000},
+            {"s01006":a.s01006,"s02006":a.s02006,"s03006":a.s03006,"s04006":a.s04006}
+        );
+        $.each(status[0],function(key,item){
+            switch (item)
+            {
+                case 0:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+                case 1:
+                    document.getElementById(key).style.background = "#ccc";
+                    break;
+            }
+        });
+        $.each(status[1],function(key,item){
+            document.getElementById(key).innerText =item;
+        });
+        $.each(status[2],function(key,item){
+            switch (item)
+            {
+                case 16:
+                    document.getElementById(key).innerText ="中心控制";
+                    break;
+                case 17:
+                    document.getElementById(key).innerText ="中心时间表控制";
+                    break;
+                case 18:
+                    document.getElementById(key).innerText ="中心优化控制";
+                    break;
+                case 19:
+                    document.getElementById(key).innerText =" 中心协调控制";
+                    break;
+                case 20:
+                    document.getElementById(key).innerText ="中心自适应控制";
+                    break;
+                case 21:
+                    document.getElementById(key).innerText =" 中心手动控制";
+                    break;
+                case 32:
+                    document.getElementById(key).innerText ="本地控制";
+                    break;
+                case 33:
+                    document.getElementById(key).innerText ="本地固定周期控制";
+                    break;
+                case 34:
+                    document.getElementById(key).innerText ="本地感应控制";
+                    break;
+                case 35:
+                    document.getElementById(key).innerText ="本地协调控制";
+                    break;
+                case 36:
+                    document.getElementById(key).innerText ="本地自适应控制";
+                    break;
+                case 37:
+                    document.getElementById(key).innerText ="本地手动控制";
+                    break;
+                case 38:
+                    document.getElementById(key).innerText ="本地优先控制";
+                    break;
+                case 39:
+                    document.getElementById(key).innerText ="本地紧急控制";
+                    break;
+                case 48:
+                    document.getElementById(key).innerText ="特殊控制";
+                    break;
+                case 49:
+                    document.getElementById(key).innerText ="黄闪控制";
+                    break;
+                case 50:
+                    document.getElementById(key).innerText =" 全红控制";
+                    break;
+                case 51:
+                    document.getElementById(key).innerText ="关灯控制";
+                    break;
+                default:
+                    document.getElementById(key).innerText ="中心控制";
+                    break;
+            }
+        });
+        $.each(status[3],function(key,item){
+            switch (item)
+            {
+                case 0:
+                    document.getElementById(key).innerText ="未协调";
+                    break;
+                case 1:
+                    document.getElementById(key).innerText ="协调";
+                    break;
+            }
+        });
+    }
+    /*
+    * 相位状态
+    */
+    //设置行，列
+    var cols=180; //11列
+    var rows=16; //16行
+    var htmlstr="<tr>";
+    for(var i=0;i<rows;i++){
+        if (i<10) {
+            i = "0" +i;
+        }
+        for(var j=0;j<cols;j++){
+            if (j<10) {
+                j = "00" +j;
+            }  else if (j>=10 && j<100) {
+                j = "0" + j;
+            }  else {
+                j = j;
+            }
+            htmlstr+="<td id="+"p"+i+j+"></td>";
+        }
+        htmlstr+="</tr>";
+    }
+    document.getElementById('phase1').innerHTML = htmlstr;
+    function fillDatas(rect_data) {
+        $.each(rect_data,function(key,item){
+            switch (item)
+            {
+                case 1:
+                    document.getElementById(key).style.background = "red";
+                    break;
+                case 16:
+                    document.getElementById(key).style.background = "red";
+                    // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
+                    break;
+                case 32:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+                case 48:
+                    document.getElementById(key).style.background = "#ff0";
+                    break;
+            }
+        })
+    }
+    var fun = function() {
+        $.ajax({
+            type: "POST",
+            url: "/get_status",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                single(data);
+                console.log(data);
+            },
+            error:function(){
+                console.log("加载资源失败");
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "/get_detector",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                fillDatas(data);
+            },
+            error:function(){
+                console.log("加载资源失败");
+            }
+        });
+    };
+    setInterval(fun,1000);
+
+
+</script>
+</body>
+</html>

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/getdetector.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/getlamp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customized.html" beforeDir="false" afterPath="$PROJECT_DIR$/customized.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/follow.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phase.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state.html" beforeDir="false" afterPath="$PROJECT_DIR$/state.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,12 +18,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="customized.html" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="customized.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customized.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-755">
-              <caret line="291" column="24" selection-start-line="291" selection-start-column="24" selection-end-line="291" selection-end-column="24" />
+            <state relative-caret-position="575">
+              <caret line="23" column="42" selection-end-line="382" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getlamp.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/getlamp.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="322" column="95" lean-forward="true" selection-start-line="322" selection-start-column="95" selection-end-line="322" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getdetector.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getdetector.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="15" column="94" lean-forward="true" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -32,15 +49,8 @@
       <file leaf-file-name="state.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/state.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="6750">
               <caret line="270" column="29" selection-start-line="270" selection-start-column="18" selection-end-line="270" selection-end-column="29" />
-              <folding>
-                <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -48,17 +58,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2808">
-              <caret line="160" column="49" lean-forward="true" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="136" selection-end-column="22" />
+            <state relative-caret-position="3575">
+              <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -87,12 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/参数保存.html" />
-        <option value="$PROJECT_DIR$/中心IP.html" />
-        <option value="$PROJECT_DIR$/运行日志.html" />
-        <option value="$PROJECT_DIR$/配时方案.html" />
-        <option value="$PROJECT_DIR$/demo.html" />
-        <option value="$PROJECT_DIR$/通道配置.html" />
         <option value="$PROJECT_DIR$/css/font-awesome.css" />
         <option value="$PROJECT_DIR$/data/phase.json" />
         <option value="$PROJECT_DIR$/js/phase.html" />
@@ -138,6 +133,12 @@
         <option value="$PROJECT_DIR$/js/customized.html" />
         <option value="$PROJECT_DIR$/state.html" />
         <option value="$PROJECT_DIR$/customized.html" />
+        <option value="$PROJECT_DIR$/test1.html" />
+        <option value="$PROJECT_DIR$/test2.html" />
+        <option value="$PROJECT_DIR$/testlamp.html" />
+        <option value="$PROJECT_DIR$/testdetector.html" />
+        <option value="$PROJECT_DIR$/getdetector.html" />
+        <option value="$PROJECT_DIR$/getlamp.html" />
       </list>
     </option>
   </component>
@@ -150,9 +151,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-19" />
+    <option name="y" value="10" />
     <option name="width" value="1940" />
     <option name="height" value="1060" />
   </component>
@@ -162,7 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,26 +170,11 @@
               <item name="signalWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="signalWeb" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="signalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="signalWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="signalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="signalWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="signalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="signalWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,27 +281,29 @@
       <workItem from="1548643685137" duration="35000" />
       <workItem from="1551076640836" duration="2244000" />
       <workItem from="1551080920220" duration="4913000" />
-      <workItem from="1551088676817" duration="3740000" />
+      <workItem from="1551088676817" duration="4556000" />
+      <workItem from="1551140710050" duration="10922000" />
+      <workItem from="1551226489543" duration="4085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446163000" />
+    <option name="totallyTimeSpent" value="461986000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-15" y="8" width="1552" height="848" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.107421875" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.107282184" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.23577236" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.23577236" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -338,14 +325,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/libs/reasy-ui-1.0.3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret column="3865" selection-start-column="3865" selection-end-column="3865" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/信号机web/www/js/config.js" />
     <entry file="file://$USER_HOME$/Desktop/信号机web/webcopy/192.168.0.1/js/network.js" />
     <entry file="file://$PROJECT_DIR$/js/phase.html" />
     <entry file="file://$PROJECT_DIR$/index8.html" />
@@ -585,36 +564,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="3325">
           <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="136" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2808">
-          <caret line="160" column="49" lean-forward="true" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/state.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="6750">
           <caret line="270" column="29" selection-start-line="270" selection-start-column="18" selection-end-line="270" selection-end-column="29" />
-          <folding>
-            <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#2;n#section#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3575">
+          <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/customized.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-755">
-          <caret line="291" column="24" selection-start-line="291" selection-start-column="24" selection-end-line="291" selection-end-column="24" />
+        <state relative-caret-position="575">
+          <caret line="23" column="42" selection-end-line="382" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getdetector.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="15" column="94" lean-forward="true" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getlamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="322" column="95" lean-forward="true" selection-start-line="322" selection-start-column="95" selection-end-line="322" selection-end-column="95" />
         </state>
       </provider>
     </entry>
