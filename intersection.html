@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <link rel="stylesheet" href="css/reasyui.css">
+    <style>
+        .street {
+            position: relative;
+            width: 1990px;
+            height: 930px;
+            background:url(img/street.jpg) no-repeat center;
+        }
+        .s0101,.s0102,.s0103,.s0104,.s0201,.s0202,.s0301,.s0302,.s0304,.s0401,.s0402{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        .s0101 {
+            top: 36%;
+            left: 48.3%;
+        }
+        .s0102 {
+            top: 36%;
+            left: 49.3%;
+        }
+        .s0103 {
+            top: 36%;
+            left: 50.25%;
+        }
+        .s0104 {
+            top: 36%;
+            left: 51.25%;
+        }
+        .s0201 {
+            top: 45%;
+            left: 58%;
+        }
+        .s0202 {
+            top: 48%;
+            left: 58%;
+        }
+
+        .s0301 {
+            top: 61.3%;
+            left: 54.3%;
+        }
+        .s0302 {
+            top: 61.3%;
+            left: 53.3%;
+        }
+        .s0303 {
+            position: absolute;
+            top: 61.3%;
+            left: 52.3%;
+        }
+        .s0304 {
+            top: 61.3%;
+            left: 51.2%;
+        }
+        .s0401 {
+            top: 53%;
+            left: 45.6%;
+        }
+        .s0402 {
+            top: 50.2%;
+            left: 45.6%;
+        }
+    </style>
+</head>
+<body>
+<div id="street" class="street">
+    <div class="test">
+
+    </div>
+</div>
+<div id="bg">
+    <div class="row1">
+        <div class="s0101" id="s0101"></div>
+        <div class="s0102" id="s0102"></div>
+        <div class="s0103" id="s0103"></div>
+        <div class="s0104" id="s0104"></div>
+    </div>
+    <div class="row2">
+        <div class="s0201" id="s0201"></div>
+        <div class="s0202" id="s0202"></div>
+    </div>
+    <div class="row3">
+        <div class="s0301" id="s0301"></div>
+        <div class="s0302" id="s0302"></div>
+        <div class="s0303" id="s0303">
+            <img src="img/zzz.png" alt="">
+        </div>
+        <div class="s0304" id="s0304"></div>
+    </div>
+    <div class="row4">
+        <div class="s0401" id="s0401"></div>
+        <div class="s0402" id="s0402"></div>
+</div>
+</div>
+<script>
+    /*function single(single_data) {
+        var status = [];
+        var a = single_data;
+        console.log(single_data);
+
+        status.push(
+            {"s00000":a.s00000,"s00001":a.s00001,"s00002":a.s00002,"s00003":a.s00003},
+            {"s00004":a.s00004,"s01001":a.s01001,"s01002":a.s01002,"s01003":a.s01003,"s01004":a.s01004,
+                "s01005":a.s01005,"s02001":a.s02001,"s02002":a.s02002,"s02003":a.s02003,"s02004":a.s02004,
+                "s02005":a.s02005,"s03001":a.s03001,"s03002":a.s03002,"s03003":a.s03003,"s03004":a.s03004,
+                "s03005":a.s03005,"s04001":a.s04001,"s04002":a.s04002,"s04003":a.s04003,"s04004":a.s04004,
+                "s04005":a.s04005},
+            {"s01000":a.s01000,"s02000":a.s02000,"s03000":a.s03000,"s04000":a.s04000},
+            {"s01006":a.s01006,"s02006":a.s02006,"s03006":a.s03006,"s04006":a.s04006}
+        );
+        $.each(status[0],function(key,item){
+            switch (item)
+            {
+                case 0:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+                case 1:
+                    document.getElementById(key).style.background = "#ccc";
+                    break;
+            }
+        });
+        $.each(status[1],function(key,item){
+            document.getElementById(key).innerText =item;
+        });*/
+    function single(rect_data) {
+        $.each(rect_data[0],function(key,item){
+            switch (item)
+            {
+                case 1:
+                    document.getElementById(key).style.background = "#f00";
+                    break;
+                case 2:
+                    document.getElementById(key).style.background = "#ff0";
+                    // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
+                    break;
+                case 3:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+            }
+        })
+    }
+
+    var fun = function() {
+        $.ajax({
+            type: "get",
+            url: "http://localhost:3003/test7",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                single(data);
+                console.log(data);
+            },
+            error:function(){
+                alert("加载资源失败");
+            }
+        });
+    };
+    setInterval(fun,1000);
+</script>
+</body>
+</html>

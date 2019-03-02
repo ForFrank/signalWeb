@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/libs/jquery-1.11.2.js"></script>
+    <link rel="stylesheet" href="css/reasyui.css">
+    <style>
+        .container{
+            width: 980px;
+            height: 508px;
+            background: #ccc;
+        }
+        .container-right{
+            height: 35px;
+        }
+        .container-right li{
+            float: left;
+            padding: 5px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            list-style: none;
+        }
+        .street {
+            width: 965px;
+            height: 450px;
+            float: left;
+            position: relative;
+            background: #0086b3;
+            background:url(img/st.jpg) no-repeat  right;
+        }
+        .street li{
+            padding: 5px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            list-style: none;
+        }
+        .s0101,.s0102,.s0103,.s0104,.s0201,.s0202,.s0301,.s0302,.s0303,.s0304,.s0401,.s0402,.s0501,.s0502,.s0503,.s0504{
+            position: absolute;
+        }
+        .s0101 {
+            top: 15.5%;
+            left: 62.5%;
+        }
+        .s0102 {
+            top: 15.5%;
+            left: 64.5%;
+        }
+        .s0103 {
+            top: 15.5%;
+            left: 66.5%;
+        }
+        .s0104 {
+            top: 15.5%;
+            left: 68.7%;
+        }
+        .s0201 {
+            vertical-align:bottom !important;
+            top: 40%;
+            left: 81.7%;
+        }
+        .s0202 {
+            top: 45%;
+            left: 81.7%;
+        }
+        .s0301 {
+            top: 74.5%;
+            left: 74.6%;
+        }
+        .s0302 {
+            top: 74.5%;
+            left: 72.6%;
+        }
+        .s0303 {
+            top: 74.5%;
+            left: 70.4%;
+
+        }
+        .s0304 {
+            top: 74.5%;
+            left: 68.3%;
+        }
+        .s0401 {
+            top: 56%;
+            left: 54.5%;
+        }
+        .s0402 {
+            top: 50%;
+            left: 54.5%;
+        }
+        .s0501 {
+            top: 63.5%;
+            left: 63%;
+        }
+        .s0502 {
+            top: 28%;
+            left: 63%;
+        }
+        .s0503 {
+            top: 37.5%;
+            left: 75.3%;
+        }
+        .s0504 {
+            top: 37.5%;
+            left: 60.5%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="container-right">
+        <ul class="channel-top">
+            <li id="s00000">运行正常</li>
+            <li id="s00001">GPS</li>
+            <li id="s00002">中心对时</li>
+            <li id="s00003">大灯开</li>
+            <li id="s00004">2018-01-20 00:00:00</li>
+        </ul>
+    </div>
+    <div class="street">
+        <ul class="channel-top">
+            <li >路口名称：XXXX</li>
+            <li >IP地址：金桐东路</li>
+            <li >所属子区：金桐东路</li>
+            <li >信号机：金桐东路</li>
+        </ul>
+            <div class="row1">
+                <div class="s0101" id="s0101">
+                    <img src="img/右转向下.png" alt="">
+                </div>
+                <div class="s0102" id="s0102">
+                    <img src="img/直行向下.png" alt="">
+                </div>
+                <div class="s0103" id="s0103">
+                    <img src="img/直行向下.png" alt="">
+                </div>
+                <div class="s0104" id="s0104">
+                    <img src="img/左转向下.png" alt="">
+                </div>
+            </div>
+            <div class="row2">
+                <div class="s0201" id="s0201"><img src="img/直行向左.png" alt=""></div>
+                <div class="s0202" id="s0202"><img src="img/左转向左.png" alt=""></div>
+            </div>
+            <div class="row3">
+                <div class="s0301" id="s0301">
+                    <img src="img/右转向上.png" alt="">
+                </div>
+                <div class="s0302" id="s0302">
+                    <img src="img/直行向上.png" alt="">
+                </div>
+                <div class="s0303" id="s0303">
+                    <img src="img/直行向上.png" alt="">
+                </div>
+                <div class="s0304" id="s0304">
+                    <img src="img/左转向上.png" alt="">
+                </div>
+            </div>
+            <div class="row4">
+                <div class="s0401" id="s0401">
+                    <img src="img/直行向右.png" alt="">
+                </div>
+                <div class="s0402" id="s0402">
+                    <img src="img/左转向右.png" alt="">
+                </div>
+            </div>
+        <div class="row5">
+            <div class="s0501" id="s0501">
+                <img src="img/bzs.png" alt="">
+            </div>
+            <div class="s0502" id="s0502">
+                <img src="img/bzs.png" alt="">
+            </div>
+            <div class="s0503" id="s0503">
+                <img src="img/bzy.png" alt="">
+            </div>
+            <div class="s0504" id="s0504">
+                <img src="img/bzy.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).keydown(function(event){
+        if(event.keyCode == 67){
+            location.href="getdetector.html";
+        }
+    });
+    function fillDatas(rect_data) {
+        $.each(rect_data[0],function(key,item){
+            switch (item)
+            {
+                case 1:
+                    document.getElementById(key).style.background = "#f00";
+                    break;
+                case 2:
+                    document.getElementById(key).style.background = "#ff0";
+                    // document.getElementById(key).style.background = "-moz-linear-gradient(left,#ccc,#0f0)";
+                    break;
+                case 3:
+                    document.getElementById(key).style.background = "#0f0";
+                    break;
+            }
+        })
+    }
+    var fun = function() {
+        /*$.ajax({
+            type: "POST",
+            url: "/get_status",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                single(data);
+                console.log(data);
+            },
+            error:function(){
+                console.log("加载资源失败");
+            }
+        });*/
+        $.ajax({
+            type: "get",
+            url: "http://localhost:3003/test7",
+            contentType: 'application/json',
+            dataType: "json",
+            success:function(data){
+                fillDatas(data);
+                console.log(data);
+            },
+            error:function(){
+                console.log("加载资源失败");
+            }
+        });
+    };
+    setInterval(fun,1000);
+
+
+</script>
+</body>
+</html>
