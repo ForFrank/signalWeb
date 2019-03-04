@@ -50,10 +50,6 @@
             font-size: 20px;
             list-style: none;
         }
-        .container-right input{
-            margin-top: 6px;
-            margin-left: 230px;
-        }
     </style>
 </head>
 <body>
@@ -65,8 +61,6 @@
             <li id="s00002">中心对时</li>
             <li id="s00003">大灯开</li>
             <li id="s00004">2018-01-20 00:00:00</li>
-            <input type="button" value="切换至灯组" onclick="test()"/>
-
         </ul>
     </div>
     <div >
@@ -210,8 +204,11 @@
     $(document).keydown(function(event){
         　　　if(event.keyCode == 66){
                location.href="getlamp.html";
-           }
-        　　});
+             }
+        if(event.keyCode == 67){
+            location.href="intersection.html";
+        }
+    });
     /*
     * 信号机状态
     */

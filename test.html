@@ -39,6 +39,7 @@
         }
         .s0101,.s0102,.s0103,.s0104,.s0201,.s0202,.s0301,.s0302,.s0303,.s0304,.s0401,.s0402,.s0501,.s0502,.s0503,.s0504{
             position: absolute;
+            font-size: 0;
         }
         .s0101 {
             top: 15.5%;
@@ -57,7 +58,6 @@
             left: 68.7%;
         }
         .s0201 {
-            vertical-align:bottom !important;
             top: 40%;
             left: 81.7%;
         }
@@ -188,6 +188,30 @@
             location.href="getdetector.html";
         }
     });
+    function single(single_data) {
+            var status = [];
+            var a = single_data;
+            console.log(single_data);
+
+            status.push(
+                {"s00000":a.s00000,"s00001":a.s00001,"s00002":a.s00002,"s00003":a.s00003},
+                {"s00004":a.s00004}
+            );
+            $.each(status[0],function(key,item){
+                switch (item)
+                {
+                    case 0:
+                        document.getElementById(key).style.background = "#0f0";
+                        break;
+                    case 1:
+                        document.getElementById(key).style.background = "#ccc";
+                        break;
+                }
+            });
+            $.each(status[1],function(key,item){
+                document.getElementById(key).innerText =item;
+            });
+    }
     function fillDatas(rect_data) {
         $.each(rect_data[0],function(key,item){
             switch (item)
@@ -206,7 +230,7 @@
         })
     }
     var fun = function() {
-        /*$.ajax({
+        $.ajax({
             type: "POST",
             url: "/get_status",
             contentType: 'application/json',
@@ -218,7 +242,7 @@
             error:function(){
                 console.log("加载资源失败");
             }
-        });*/
+        });
         $.ajax({
             type: "get",
             url: "http://localhost:3003/test7",
