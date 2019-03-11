@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="020817ea-747e-4e45-bc23-58dab9030e9a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/intersection.html" beforeDir="false" afterPath="$PROJECT_DIR$/intersection.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,8 +20,8 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+            <state relative-caret-position="509">
+              <caret line="304" column="6" lean-forward="true" selection-start-line="275" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -28,8 +29,8 @@
       <file leaf-file-name="intersection.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/intersection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="133" column="14" lean-forward="true" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
+            <state relative-caret-position="-405">
+              <caret line="282" column="49" lean-forward="true" selection-start-line="282" selection-start-column="49" selection-end-line="282" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -109,8 +110,8 @@
         <option value="$PROJECT_DIR$/css/reasyui.css" />
         <option value="$PROJECT_DIR$/getdetector.html" />
         <option value="$PROJECT_DIR$/getlamp.html" />
-        <option value="$PROJECT_DIR$/intersection.html" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/intersection.html" />
       </list>
     </option>
   </component>
@@ -267,16 +268,15 @@
       <workItem from="1551615751947" duration="6064000" />
       <workItem from="1551656948488" duration="1990000" />
       <workItem from="1551687777461" duration="633000" />
-      <workItem from="1552262398166" duration="6316000" />
+      <workItem from="1552262398166" duration="7459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="517843000" />
+    <option name="totallyTimeSpent" value="518986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12890625" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -582,15 +582,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+        <state relative-caret-position="509">
+          <caret line="304" column="6" lean-forward="true" selection-start-line="275" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/intersection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="133" column="14" lean-forward="true" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
+        <state relative-caret-position="-405">
+          <caret line="282" column="49" lean-forward="true" selection-start-line="282" selection-start-column="49" selection-end-line="282" selection-end-column="49" />
         </state>
       </provider>
     </entry>

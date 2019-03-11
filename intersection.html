@@ -37,9 +37,23 @@
             font-size: 16px;
             list-style: none;
         }
-        .street-b {
+        .street input {
+            width: 15%;
+        }
+        /*.street-b {
             position: absolute;
             top: 15.5%;
+        }*/
+        .result {
+            margin-left: 5%;
+            width: 24.5%;
+            height: 50%;
+            background: white;
+            overflow: scroll;
+        }
+        .result p{
+            margin-left: 5%;
+            margin-top: 5%;
         }
         .p01001,.p01002,.p01003,.p01004,.p01005,.p01006,.p01007,.p01008,.p01009,.p01010,.p01011,.p01012,.p01013,.p01014,.p01015,.p01016{
             position: absolute;
@@ -124,14 +138,18 @@
         </ul>
     </div>
     <div class="street">
-        <div class="street-b">
+        <!--<div class="street-b">-->
             <ul class="channel-top">
                 <li >路口名称：金桐东路-光华路</li>
                 <li >IP&nbsp&nbsp地&nbsp&nbsp址：金桐东路</li>
                 <li >所&nbsp属子区：金桐东路</li>
                 <li >信&nbsp&nbsp号&nbsp&nbsp机：金桐东路</li>
+                <li>
+                    查询：<input type="text" id="search"><button type="button" onclick="search()">提交</button>
+                </li>
             </ul>
-        </div>
+            <div class="result" id="result"></div>
+        <!--</div>-->
         <div class="row1">
             <div class="p01001" id="p01001">
                 <img src="img/直行向下.png" alt="">
@@ -267,6 +285,34 @@
         });
     };
     setInterval(fun,1000);
+    // 查询
+    function search()
+    {
+        $.ajax({
+            type: "get",
+            url: "http://localhost:3003/test8",
+            contentType: 'application/json',
+            dataType: "json",
+            data: $('#search').serialize(),
+            success:function(data){
+                searchreslut(data);
+            },
+            error: function(data, type, err){
+                console.log("ajax错误类型："+type);
+                console.log(err);
+            }
+        });
+
+    }
+    function searchreslut(rect_data) {
+        var objKeys=Object.keys(rect_data[0]);
+        var objvalus=Object.values(rect_data[0]);
+        var str = "";
+        for (var i =0; i<objKeys.length; i++)  {
+            str += "<p>"+objKeys[i]+"<span>: </span><span >"+objvalus[i]+"</span></p>";
+        }
+        document.getElementById('result').innerHTML = str;
+    }
 
 
 </script>
