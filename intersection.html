@@ -217,7 +217,7 @@
     });
     function single(single_data) {
         var status = [];
-        var a = single_data[0];
+        var a = single_data;
         console.log(single_data);
 
         status.push(
@@ -240,7 +240,7 @@
         });
     }
     function fillDatas(rect_data) {
-        $.each(rect_data[0],function(key,item){
+        $.each(rect_data,function(key,item){
             switch (item)
             {
                 case 1:
@@ -258,8 +258,8 @@
     }
     var fun = function() {
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test",
+            type: "POST",
+            url: "/get_status",
             contentType: 'application/json',
             dataType: "json",
             success:function(data){
@@ -271,8 +271,8 @@
             }
         });
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test7",
+            type: "POST",
+            url: "/get_intersection",
             contentType: 'application/json',
             dataType: "json",
             success:function(data){
@@ -289,8 +289,8 @@
     function search()
     {
         $.ajax({
-            type: "get",
-            url: "http://localhost:3003/test8",
+            type: "POST",
+            url: "/get_search",
             contentType: 'application/json',
             dataType: "json",
             data: $('#search').serialize(),
@@ -305,15 +305,14 @@
 
     }
     function searchreslut(rect_data) {
-        var objKeys=Object.keys(rect_data[0]);
-        var objvalus=Object.values(rect_data[0]);
+        var objKeys=Object.keys(rect_data);
+        var objvalus=Object.values(rect_data);
         var str = "";
         for (var i =0; i<objKeys.length; i++)  {
             str += "<p>"+objKeys[i]+"<span>: </span><span >"+objvalus[i]+"</span></p>";
         }
         document.getElementById('result').innerHTML = str;
     }
-
 
 </script>
 </body>
